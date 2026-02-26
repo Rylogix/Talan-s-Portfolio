@@ -155,38 +155,6 @@ function initAudioPlayers() {
   });
 }
 
-function getPreferredTheme() {
-  const saved = localStorage.getItem("tg-theme");
-  if (saved === "dark" || saved === "light") return saved;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-}
-
-function applyTheme(theme) {
-  document.documentElement.dataset.theme = theme;
-  const toggle = document.querySelector("[data-theme-toggle]");
-  if (!toggle) return;
-
-  const isLight = theme === "light";
-  toggle.setAttribute("aria-pressed", String(isLight));
-  toggle.setAttribute("aria-label", isLight ? "Toggle dark mode" : "Toggle light mode");
-  const label = toggle.querySelector(".theme-toggle__label");
-  if (label) {
-    label.textContent = isLight ? "Dark" : "Light";
-  }
-}
-
-function initThemeToggle() {
-  applyTheme(getPreferredTheme());
-  const toggle = document.querySelector("[data-theme-toggle]");
-  if (!toggle) return;
-
-  toggle.addEventListener("click", () => {
-    const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
-    localStorage.setItem("tg-theme", next);
-    applyTheme(next);
-  });
-}
-
 function initRevealAnimations() {
   const nodes = document.querySelectorAll("[data-reveal]");
   if (!nodes.length) return;
@@ -295,7 +263,6 @@ function initFooterYear() {
   if (yearNode) yearNode.textContent = String(new Date().getFullYear());
 }
 
-initThemeToggle();
 initRevealAnimations();
 initAudioPlayers();
 initContactForm();

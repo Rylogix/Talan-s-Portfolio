@@ -26,22 +26,6 @@
   --header-h: 4.25rem;
 }
 
-html[data-theme="light"] {
-  color-scheme: light;
-  --bg: #eff2f7;
-  --bg-soft: #ffffff;
-  --surface: rgba(255, 255, 255, 0.8);
-  --surface-strong: rgba(255, 255, 255, 0.92);
-  --surface-border: rgba(20, 28, 39, 0.1);
-  --text: #0f1722;
-  --text-muted: #344255;
-  --text-subtle: #607086;
-  --accent: #c27a18;
-  --accent-strong: #a86208;
-  --accent-cool: #1373c8;
-  --shadow: 0 18px 48px rgba(20, 28, 39, 0.12);
-}
-
 html {
   scroll-behavior: smooth;
 }
@@ -195,50 +179,11 @@ svg {
   background: rgba(255, 255, 255, 0.06);
 }
 
-.theme-toggle {
-  grid-column: 3 / 4;
-  justify-self: end;
-  position: relative;
-  border: 1px solid var(--surface-border);
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 999px;
-  padding: 0.55rem 0.9rem;
-  min-width: 5.2rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 180ms ease, box-shadow 220ms ease, border-color 220ms ease;
-}
-
-.theme-toggle:hover,
-.theme-toggle:focus-visible {
-  transform: translateY(-1px);
-  border-color: rgba(233, 184, 109, 0.34);
-  box-shadow:
-    0 0 0 1px rgba(233, 184, 109, 0.12),
-    0 10px 22px rgba(233, 184, 109, 0.12);
-}
-
-.theme-toggle::after {
-  content: "";
-  position: absolute;
-  inset: auto 0.6rem -0.25rem;
-  height: 0.4rem;
-  border-radius: 999px;
-  background: radial-gradient(circle, rgba(233, 184, 109, 0.3), transparent 70%);
-  filter: blur(7px);
-  opacity: 0;
-  transition: opacity 220ms ease;
-}
-
-.theme-toggle:hover::after,
-.theme-toggle:focus-visible::after {
-  opacity: 1;
-}
-
 .hero {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 1.35rem;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 0;
   padding-top: 2.25rem;
   padding-bottom: 3rem;
 }
@@ -246,6 +191,11 @@ svg {
 .hero__content,
 .hero__panel {
   min-width: 0;
+}
+
+.hero__content {
+  width: min(760px, 100%);
+  text-align: center;
 }
 
 .eyebrow {
@@ -276,7 +226,7 @@ svg {
 }
 
 .hero__lead {
-  margin: 1rem 0 0;
+  margin: 1rem auto 0;
   max-width: 56ch;
   color: var(--text-muted);
   font-size: 1.03rem;
@@ -361,6 +311,7 @@ svg {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.75rem;
+  width: 100%;
 }
 
 .hero__stats li {
@@ -369,6 +320,7 @@ svg {
   border: 1px solid var(--surface-border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow);
+  text-align: center;
 }
 
 .hero__stats strong {
