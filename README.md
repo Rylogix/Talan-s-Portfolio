@@ -36,6 +36,19 @@ npm run dev
 npm run build
 ```
 
+## GitHub Pages (Important)
+
+GitHub Pages must host the built `dist/` output, not the raw source files.
+
+If you publish the repo root directly, the page will often appear as "HTML only" because Vite features (like CSS imported from JS) are not processed.
+
+Recommended flow:
+
+1. Run `npm run build`
+2. Deploy the contents of `dist/` to GitHub Pages
+
+This project includes `vite.config.js` with `base: "./"` so the built assets load correctly on GitHub Pages project URLs.
+
 ## Formspree Notes
 
 - The site uses a client-side POST to Formspree with `Accept: application/json`.
