@@ -928,6 +928,20 @@ svg {
   gap: 0.55rem;
 }
 
+.contact-warning {
+  margin: 0.85rem 0 0;
+  padding: 0.7rem 0.8rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(233, 184, 109, 0.3);
+  background:
+    linear-gradient(135deg, rgba(233, 184, 109, 0.12), rgba(233, 184, 109, 0.04)),
+    rgba(255, 255, 255, 0.015);
+  color: color-mix(in oklab, var(--accent) 84%, var(--text));
+  font-size: 0.9rem;
+  line-height: 1.45;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
 .contact-list a {
   display: inline-flex;
   align-items: center;
@@ -998,16 +1012,6 @@ svg {
   opacity: 0.95;
 }
 
-.icon-link--email:hover,
-.icon-link--email:focus-visible {
-  border-color: rgba(134, 199, 255, 0.4);
-  box-shadow: 0 14px 28px rgba(134, 199, 255, 0.14);
-}
-
-.icon-link--email::after {
-  background: radial-gradient(circle, rgba(134, 199, 255, 0.48), transparent 70%);
-}
-
 .icon-link--instagram:hover,
 .icon-link--instagram:focus-visible {
   border-color: rgba(255, 116, 173, 0.38);
@@ -1018,14 +1022,29 @@ svg {
   background: radial-gradient(circle, rgba(255, 116, 173, 0.52), transparent 70%);
 }
 
-.icon-link--youtube:hover,
-.icon-link--youtube:focus-visible {
-  border-color: rgba(255, 99, 99, 0.4);
-  box-shadow: 0 14px 28px rgba(255, 99, 99, 0.14);
+.icon-link--x:hover,
+.icon-link--x:focus-visible {
+  border-color: rgba(255, 255, 255, 0.22);
+  box-shadow: 0 14px 28px rgba(255, 255, 255, 0.1);
 }
 
-.icon-link--youtube::after {
-  background: radial-gradient(circle, rgba(255, 99, 99, 0.5), transparent 70%);
+.icon-link--x::after {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.34), transparent 70%);
+}
+
+.icon-link--x svg {
+  width: 1.85rem;
+  height: 1.85rem;
+}
+
+.icon-link--discord:hover,
+.icon-link--discord:focus-visible {
+  border-color: rgba(122, 141, 255, 0.42);
+  box-shadow: 0 14px 28px rgba(122, 141, 255, 0.16);
+}
+
+.icon-link--discord::after {
+  background: radial-gradient(circle, rgba(122, 141, 255, 0.48), transparent 70%);
 }
 
 .sr-only {
