@@ -948,6 +948,19 @@ svg {
   color: var(--text);
 }
 
+.icon-link__img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.icon-link__img--discord {
+  width: 2.05rem;
+  height: 2.05rem;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
 .icon-link::after {
   content: "";
   position: absolute;
