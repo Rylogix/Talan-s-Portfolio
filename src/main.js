@@ -272,7 +272,7 @@ async function handleContactSubmit(event) {
     }
   } finally {
     submitButton.disabled = false;
-    submitButton.textContent = "Send Inquiry";
+    submitButton.textContent = "Send";
   }
 }
 

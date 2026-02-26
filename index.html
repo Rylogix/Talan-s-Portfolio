@@ -39,17 +39,12 @@
     <main id="top">
       <section class="hero section shell" id="hero">
         <div class="hero__content" data-reveal>
-          <p class="eyebrow">Professional Voice Talent</p>
           <h1>Talan Gray</h1>
           <p class="hero__title">Voice Actor</p>
           <p class="hero__lead">
             Cinematic reads, clean studio delivery, and fast turnaround for creators,
             casting teams, and indie studios.
           </p>
-          <div class="hero__actions">
-            <a class="btn btn--primary" href="#demos">Listen to Demo</a>
-            <a class="btn btn--ghost" href="#contact">Book a Session</a>
-          </div>
           <ul class="hero__stats" aria-label="Quick highlights">
             <li>
               <strong>24h</strong>
@@ -276,13 +271,84 @@
               script length, style references, and target delivery date.
             </p>
 
-            <div class="contact-list">
-              <a href="mailto:booking@talangrayvoice.com">booking@talangrayvoice.com</a>
-              <a href="https://instagram.com/talangrayvoice" target="_blank" rel="noreferrer">
-                Instagram
+            <div class="contact-list contact-list--icons" aria-label="Contact links">
+              <a
+                class="icon-link icon-link--email"
+                href="mailto:booking@talangrayvoice.com"
+                aria-label="Email Talan"
+                title="Email"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M3.75 6.75h16.5a1.5 1.5 0 0 1 1.5 1.5v7.5a1.5 1.5 0 0 1-1.5 1.5H3.75a1.5 1.5 0 0 1-1.5-1.5v-7.5a1.5 1.5 0 0 1 1.5-1.5Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="m3 7.5 9 6 9-6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span class="sr-only">Email</span>
               </a>
-              <a href="https://youtube.com/@talangrayvoice" target="_blank" rel="noreferrer">
-                YouTube
+
+              <a
+                class="icon-link icon-link--instagram"
+                href="https://instagram.com/talangrayvoice"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Instagram"
+                title="Instagram"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect
+                    x="3.25"
+                    y="3.25"
+                    width="17.5"
+                    height="17.5"
+                    rx="5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="4.1"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                  />
+                  <circle cx="17.25" cy="6.75" r="1.15" fill="currentColor" />
+                </svg>
+                <span class="sr-only">Instagram</span>
+              </a>
+
+              <a
+                class="icon-link icon-link--youtube"
+                href="https://youtube.com/@talangrayvoice"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="YouTube"
+                title="YouTube"
+              >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M21.2 8.2a2.8 2.8 0 0 0-2-2c-1.8-.5-7.2-.5-7.2-.5s-5.4 0-7.2.5a2.8 2.8 0 0 0-2 2C2.25 10 2.25 12 2.25 12s0 2 .55 3.8a2.8 2.8 0 0 0 2 2c1.8.5 7.2.5 7.2.5s5.4 0 7.2-.5a2.8 2.8 0 0 0 2-2c.55-1.8.55-3.8.55-3.8s0-2-.55-3.8Z"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                  />
+                  <path d="m10 9 5 3-5 3V9Z" fill="currentColor" />
+                </svg>
+                <span class="sr-only">YouTube</span>
               </a>
             </div>
           </div>
@@ -319,7 +385,7 @@
               />
 
               <button type="submit" class="btn btn--primary btn--full" data-submit-button>
-                Send Inquiry
+                Send
               </button>
               <p class="form-status" data-form-status role="status" aria-live="polite"></p>
             </form>
