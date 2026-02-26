@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Talan Gray voice actor portfolio featuring demo reels, studio details, and a direct booking contact form."
+    />
+    <meta name="theme-color" content="#0d1016" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <title>Talan Gray | Voice Actor</title>
+  </head>
+  <body>
+    <div class="ambient-layer" aria-hidden="true"></div>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Talan Gray home">
+        <span class="brand__mark">TG</span>
+        <span class="brand__copy">
+          <strong>Talan Gray</strong>
+          <span>Voice Actor</span>
+        </span>
+      </a>
+
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#demos">Demos</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button
+        class="theme-toggle"
+        type="button"
+        data-theme-toggle
+        aria-pressed="false"
+        aria-label="Toggle light mode"
+      >
+        <span class="theme-toggle__label">Light</span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero section shell" id="hero">
+        <div class="hero__content" data-reveal>
+          <p class="eyebrow">Professional Voice Talent</p>
+          <h1>Talan Gray</h1>
+          <p class="hero__title">Voice Actor</p>
+          <p class="hero__lead">
+            Cinematic reads, clean studio delivery, and fast turnaround for creators,
+            casting teams, and indie studios.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#demos">Listen to Demo</a>
+            <a class="btn btn--ghost" href="#contact">Book a Session</a>
+          </div>
+          <ul class="hero__stats" aria-label="Quick highlights">
+            <li>
+              <strong>24h</strong>
+              <span>Typical turnaround</span>
+            </li>
+            <li>
+              <strong>Remote</strong>
+              <span>Studio-ready delivery</span>
+            </li>
+            <li>
+              <strong>Directed</strong>
+              <span>Live session friendly</span>
+            </li>
+          </ul>
+        </div>
+
+        <aside class="hero__panel" data-reveal>
+          <div class="hero-card">
+            <p class="hero-card__label">Featured Tone</p>
+            <h2>Grounded. Adaptable. Cinematic.</h2>
+            <p>
+              Performance-first reads for character work, narration, and commercial spots
+              that need clarity and emotional control.
+            </p>
+            <div class="hero-card__wave" aria-hidden="true">
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section shell" id="demos" aria-labelledby="demos-title">
+        <div class="section-head" data-reveal>
+          <p class="eyebrow">Demo Reels</p>
+          <h2 id="demos-title">Listen by style and tone</h2>
+          <p>
+            Custom players are mobile-friendly and intentionally simple. No autoplay, consistent
+            controls, and waveform jump bars for quick auditioning.
+          </p>
+        </div>
+
+        <div class="demo-grid">
+          <article class="demo-card" data-reveal>
+            <div class="demo-card__head">
+              <p class="demo-card__tag">Commercial</p>
+              <h3>Warm, conversational brand reads</h3>
+              <p>
+                Friendly retail, modern tech, and lifestyle delivery with clear pacing and an
+                approachable tone.
+              </p>
+            </div>
+            <div class="demo-player" data-player data-wave-seed="7">
+              <audio preload="metadata" src="/audio/commercial-placeholder.wav"></audio>
+              <div class="demo-player__controls">
+                <button type="button" class="control-btn" data-action="play">Play</button>
+                <button type="button" class="control-btn" data-action="pause">Pause</button>
+                <button type="button" class="control-btn" data-action="restart">Restart</button>
+              </div>
+              <div class="demo-player__timeline-row">
+                <span data-current>0:00</span>
+                <input
+                  type="range"
+                  min="0"
+                  max="1000"
+                  step="1"
+                  value="0"
+                  data-timeline
+                  aria-label="Seek commercial demo"
+                />
+                <span data-duration>0:00</span>
+              </div>
+              <div class="demo-player__waveform" data-waveform aria-label="Waveform preview"></div>
+              <p class="demo-player__note">Tap waveform bars to jump to a moment.</p>
+            </div>
+          </article>
+
+          <article class="demo-card" data-reveal>
+            <div class="demo-card__head">
+              <p class="demo-card__tag">Character</p>
+              <h3>Expressive performance range</h3>
+              <p>
+                Distinct personalities, emotional shifts, and game/animation-ready energy with
+                clean articulation.
+              </p>
+            </div>
+            <div class="demo-player" data-player data-wave-seed="13">
+              <audio preload="metadata" src="/audio/character-placeholder.wav"></audio>
+              <div class="demo-player__controls">
+                <button type="button" class="control-btn" data-action="play">Play</button>
+                <button type="button" class="control-btn" data-action="pause">Pause</button>
+                <button type="button" class="control-btn" data-action="restart">Restart</button>
+              </div>
+              <div class="demo-player__timeline-row">
+                <span data-current>0:00</span>
+                <input
+                  type="range"
+                  min="0"
+                  max="1000"
+                  step="1"
+                  value="0"
+                  data-timeline
+                  aria-label="Seek character demo"
+                />
+                <span data-duration>0:00</span>
+              </div>
+              <div class="demo-player__waveform" data-waveform aria-label="Waveform preview"></div>
+              <p class="demo-player__note">No autoplay. Playback starts only on user action.</p>
+            </div>
+          </article>
+
+          <article class="demo-card" data-reveal>
+            <div class="demo-card__head">
+              <p class="demo-card__tag">Narration</p>
+              <h3>Confident, grounded storytelling</h3>
+              <p>
+                Long-form narration and documentary style reads with controlled pace, warmth,
+                and reliable consistency.
+              </p>
+            </div>
+            <div class="demo-player" data-player data-wave-seed="21">
+              <audio preload="metadata" src="/audio/narration-placeholder.wav"></audio>
+              <div class="demo-player__controls">
+                <button type="button" class="control-btn" data-action="play">Play</button>
+                <button type="button" class="control-btn" data-action="pause">Pause</button>
+                <button type="button" class="control-btn" data-action="restart">Restart</button>
+              </div>
+              <div class="demo-player__timeline-row">
+                <span data-current>0:00</span>
+                <input
+                  type="range"
+                  min="0"
+                  max="1000"
+                  step="1"
+                  value="0"
+                  data-timeline
+                  aria-label="Seek narration demo"
+                />
+                <span data-duration>0:00</span>
+              </div>
+              <div class="demo-player__waveform" data-waveform aria-label="Waveform preview"></div>
+              <p class="demo-player__note">
+                Replace placeholder clips with compressed MP3/AAC files before launch.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell" id="about" aria-labelledby="about-title">
+        <div class="about-grid">
+          <div class="about-copy" data-reveal>
+            <p class="eyebrow">About</p>
+            <h2 id="about-title">A human-first approach to performance and collaboration</h2>
+            <p>
+              Talan Gray came to voice acting through storytelling and performance, focusing on
+              reads that feel natural, directable, and easy to cut into real productions. The
+              goal is simple: deliver a performance that fits the project, on time, without
+              friction.
+            </p>
+            <p>
+              Known for adaptability, reliability, and fast turnaround, Talan works well with
+              both detailed direction and lightweight briefs, making collaboration easy for
+              creators and production teams on tight schedules.
+            </p>
+
+            <div class="trait-list" aria-label="Professional traits">
+              <span>Adaptable</span>
+              <span>Reliable</span>
+              <span>Fast Turnaround</span>
+              <span>Directed Sessions</span>
+              <span>Clean Delivery</span>
+            </div>
+          </div>
+
+          <div class="studio-panel" data-reveal>
+            <div class="studio-card">
+              <p class="studio-card__label">Studio Setup</p>
+              <h3>Remote-ready recording environment</h3>
+              <ul>
+                <li>Broadcast-quality microphone workflow</li>
+                <li>Dedicated audio interface signal chain</li>
+                <li>Treated recording space for low-noise takes</li>
+                <li>Edited, export-ready files with quick turnaround</li>
+              </ul>
+              <p class="studio-card__footnote">
+                Final brand/model gear details can be swapped in once confirmed.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="gear-grid" data-reveal aria-label="Studio gear showcase">
+          <article class="gear-card">
+            <p class="gear-card__eyebrow">Mic Chain</p>
+            <h3>Capture</h3>
+            <p>Low-noise vocal capture tuned for clean, present reads.</p>
+          </article>
+          <article class="gear-card">
+            <p class="gear-card__eyebrow">Interface</p>
+            <h3>Signal Path</h3>
+            <p>Stable gain staging and monitoring for consistent sessions.</p>
+          </article>
+          <article class="gear-card">
+            <p class="gear-card__eyebrow">Booth</p>
+            <h3>Treated Space</h3>
+            <p>Controlled room sound with reduced reflections and ambient noise.</p>
+          </article>
+          <article class="gear-card">
+            <p class="gear-card__eyebrow">Delivery</p>
+            <h3>Turnaround</h3>
+            <p>Fast exports, labeled takes, and creator-friendly handoff workflow.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell" id="contact" aria-labelledby="contact-title">
+        <div class="contact-grid">
+          <div class="contact-copy" data-reveal>
+            <p class="eyebrow">Contact / Booking</p>
+            <h2 id="contact-title">Book Talan for your next project</h2>
+            <p>
+              Send project details, timeline, and usage notes. For the fastest response, include
+              script length, style references, and target delivery date.
+            </p>
+
+            <div class="contact-list">
+              <a href="mailto:booking@talangrayvoice.com">booking@talangrayvoice.com</a>
+              <a href="https://instagram.com/talangrayvoice" target="_blank" rel="noreferrer">
+                Instagram
+              </a>
+              <a href="https://youtube.com/@talangrayvoice" target="_blank" rel="noreferrer">
+                YouTube
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-card" data-reveal>
+            <form class="contact-form" data-contact-form novalidate>
+              <label>
+                Your Email
+                <input type="email" name="email" autocomplete="email" required />
+              </label>
+
+              <label>
+                Project Type
+                <input type="text" name="project_type" placeholder="Commercial, game, narration..." />
+              </label>
+
+              <label>
+                Message
+                <textarea
+                  name="message"
+                  rows="6"
+                  required
+                  placeholder="Tell me about the project, script length, direction, and deadline."
+                ></textarea>
+              </label>
+
+              <input
+                type="text"
+                name="_gotcha"
+                tabindex="-1"
+                autocomplete="off"
+                class="contact-form__honeypot"
+                aria-hidden="true"
+              />
+
+              <button type="submit" class="btn btn--primary btn--full" data-submit-button>
+                Send Inquiry
+              </button>
+              <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <p>© <span data-year></span> Talan Gray. Voice Actor.</p>
+      <p class="site-footer__meta">Built for speed, mobile review, and direct booking.</p>
+    </footer>
+
+    <a class="book-now" href="#contact">Book Now</a>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
