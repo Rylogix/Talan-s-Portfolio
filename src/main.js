@@ -75,18 +75,26 @@ function initAudioPlayers() {
 
     root.dataset.playing = "false";
     buildWaveform(waveform, audio, root.dataset.waveSeed);
+    timeline.style.setProperty("--timeline-progress", "0%");
+    waveform.style.setProperty("--wave-progress", "0%");
 
     const updateProgress = () => {
       const duration = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : 0;
       const current = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
-      timeline.value = duration ? String(Math.round((current / duration) * 1000)) : "0";
+      const ratio = duration ? current / duration : 0;
+      const clampedRatio = Math.max(0, Math.min(ratio, 1));
+
+      timeline.value = duration ? String(Math.round(clampedRatio * 1000)) : "0";
+      timeline.style.setProperty("--timeline-progress", `${clampedRatio * 100}%`);
+      waveform.style.setProperty("--wave-progress", `${clampedRatio * 100}%`);
       currentTimeLabel.textContent = formatTime(current);
       durationLabel.textContent = formatTime(duration);
+      timeline.setAttribute("aria-valuetext", `${formatTime(current)} of ${formatTime(duration)}`);
 
       const bars = waveform.querySelectorAll(".wave-bar");
       bars.forEach((bar) => {
         const seekPercent = Number(bar.dataset.seekPercent || 0);
-        bar.classList.toggle("is-active", duration > 0 && current / duration >= seekPercent);
+        bar.classList.toggle("is-active", duration > 0 && clampedRatio >= seekPercent);
       });
     };
 
