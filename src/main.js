@@ -21,32 +21,6 @@ function pauseOtherPlayers(currentAudio) {
   }
 }
 
-function buildWaveform(container, audio, seedValue) {
-  const seed = Number(seedValue) || 1;
-  const barCount = 28;
-
-  for (let index = 0; index < barCount; index += 1) {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "wave-bar";
-
-    const t = index + 1 + seed;
-    const height = 25 + Math.round(((Math.sin(t * 0.73) + Math.cos(t * 0.41)) * 0.5 + 1) * 25);
-    const percent = index / (barCount - 1);
-    button.style.setProperty("--bar-h", `${height}%`);
-    button.setAttribute("aria-label", `Seek to ${Math.round(percent * 100)} percent`);
-    button.dataset.seekPercent = String(percent);
-
-    button.addEventListener("click", () => {
-      if (Number.isFinite(audio.duration) && audio.duration > 0) {
-        audio.currentTime = audio.duration * percent;
-      }
-    });
-
-    container.append(button);
-  }
-}
-
 function initAudioPlayers() {
   const playerRoots = document.querySelectorAll("[data-player]");
 
@@ -58,7 +32,6 @@ function initAudioPlayers() {
     const timeline = root.querySelector("[data-timeline]");
     const currentTimeLabel = root.querySelector("[data-current]");
     const durationLabel = root.querySelector("[data-duration]");
-    const waveform = root.querySelector("[data-waveform]");
 
     if (
       !audio ||
@@ -67,16 +40,13 @@ function initAudioPlayers() {
       !restartBtn ||
       !timeline ||
       !currentTimeLabel ||
-      !durationLabel ||
-      !waveform
+      !durationLabel
     ) {
       return;
     }
 
     root.dataset.playing = "false";
-    buildWaveform(waveform, audio, root.dataset.waveSeed);
     timeline.style.setProperty("--timeline-progress", "0%");
-    waveform.style.setProperty("--wave-progress", "0%");
 
     const updateProgress = () => {
       const duration = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : 0;
@@ -86,16 +56,9 @@ function initAudioPlayers() {
 
       timeline.value = duration ? String(Math.round(clampedRatio * 1000)) : "0";
       timeline.style.setProperty("--timeline-progress", `${clampedRatio * 100}%`);
-      waveform.style.setProperty("--wave-progress", `${clampedRatio * 100}%`);
       currentTimeLabel.textContent = formatTime(current);
       durationLabel.textContent = formatTime(duration);
       timeline.setAttribute("aria-valuetext", `${formatTime(current)} of ${formatTime(duration)}`);
-
-      const bars = waveform.querySelectorAll(".wave-bar");
-      bars.forEach((bar) => {
-        const seekPercent = Number(bar.dataset.seekPercent || 0);
-        bar.classList.toggle("is-active", duration > 0 && clampedRatio >= seekPercent);
-      });
     };
 
     playBtn.addEventListener("click", async () => {
