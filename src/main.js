@@ -1,6 +1,6 @@
 import "./styles.css";
 
-const FORM_ENDPOINT = (import.meta.env.VITE_FORMSPREE_ENDPOINT || "").trim();
+const FORM_ENDPOINT = "https://formspree.io/f/mqedozga";
 const allPlayers = new Set();
 
 function formatTime(seconds) {
@@ -154,19 +154,16 @@ async function handleContactSubmit(event) {
 
   if (!(form instanceof HTMLFormElement) || !(submitButton instanceof HTMLButtonElement)) return;
 
-  if (!FORM_ENDPOINT || FORM_ENDPOINT.includes("your-form-id")) {
-    if (status) {
-      status.textContent =
-        "Configure VITE_FORMSPREE_ENDPOINT in your .env file to enable submissions.";
-      status.dataset.state = "error";
-    }
-    return;
-  }
-
   if (!form.reportValidity()) return;
 
   const formData = new FormData(form);
-  const payload = Object.fromEntries(formData.entries());
+  const payload = {
+    email: String(formData.get("email") || ""),
+    projectType: String(formData.get("projectType") || ""),
+    message: String(formData.get("message") || ""),
+    _gotcha: String(formData.get("_gotcha") || ""),
+    _subject: String(formData.get("_subject") || "")
+  };
 
   submitButton.disabled = true;
   submitButton.textContent = "Sending...";
@@ -186,12 +183,11 @@ async function handleContactSubmit(event) {
     });
 
     if (!response.ok) {
-      let message = "Submission failed. Please try again or email directly.";
+      let message = "Something went wrong. Try again.";
       try {
         const data = await response.json();
-        if (data?.errors?.[0]?.message) {
-          message = data.errors[0].message;
-        }
+        message =
+          data?.errors?.[0]?.message || data?.error || data?.message || "Something went wrong. Try again.";
       } catch {
         // Ignore JSON parse failures.
       }
@@ -200,13 +196,12 @@ async function handleContactSubmit(event) {
 
     form.reset();
     if (status) {
-      status.textContent = "Thanks. Your message was sent successfully.";
+      status.textContent = "Sent. I\u2019ll get back to you by email.";
       status.dataset.state = "success";
     }
   } catch (error) {
     if (status) {
-      status.textContent =
-        error instanceof Error ? error.message : "Submission failed. Please try again later.";
+      status.textContent = error instanceof Error ? error.message : "Something went wrong. Try again.";
       status.dataset.state = "error";
     }
   } finally {

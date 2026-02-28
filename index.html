@@ -70,9 +70,21 @@
             <div class="demo-player" data-player>
               <audio preload="metadata" src="/audio/commercial-placeholder.wav"></audio>
               <div class="demo-player__controls">
-                <button type="button" class="control-btn" data-action="play">Play</button>
-                <button type="button" class="control-btn" data-action="pause">Pause</button>
-                <button type="button" class="control-btn" data-action="restart">Restart</button>
+                <button type="button" class="control-btn" data-action="play" aria-label="Play">
+                  <svg class="control-btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </button>
+                <button type="button" class="control-btn" data-action="pause" aria-label="Pause">
+                  <svg class="control-btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M7 5h4v14H7zm6 0h4v14h-4z" />
+                  </svg>
+                </button>
+                <button type="button" class="control-btn" data-action="restart" aria-label="Restart">
+                  <svg class="control-btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M6 5h2v14H6zM19 19 9 12l10-7z" />
+                  </svg>
+                </button>
               </div>
               <div class="demo-player__timeline-row">
                 <span data-current>0:00</span>
@@ -103,9 +115,21 @@
             <div class="demo-player" data-player>
               <audio preload="metadata" src="/audio/character-placeholder.wav"></audio>
               <div class="demo-player__controls">
-                <button type="button" class="control-btn" data-action="play">Play</button>
-                <button type="button" class="control-btn" data-action="pause">Pause</button>
-                <button type="button" class="control-btn" data-action="restart">Restart</button>
+                <button type="button" class="control-btn" data-action="play" aria-label="Play">
+                  <svg class="control-btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </button>
+                <button type="button" class="control-btn" data-action="pause" aria-label="Pause">
+                  <svg class="control-btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M7 5h4v14H7zm6 0h4v14h-4z" />
+                  </svg>
+                </button>
+                <button type="button" class="control-btn" data-action="restart" aria-label="Restart">
+                  <svg class="control-btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M6 5h2v14H6zM19 19 9 12l10-7z" />
+                  </svg>
+                </button>
               </div>
               <div class="demo-player__timeline-row">
                 <span data-current>0:00</span>
@@ -136,9 +160,21 @@
             <div class="demo-player" data-player>
               <audio preload="metadata" src="/audio/narration-placeholder.wav"></audio>
               <div class="demo-player__controls">
-                <button type="button" class="control-btn" data-action="play">Play</button>
-                <button type="button" class="control-btn" data-action="pause">Pause</button>
-                <button type="button" class="control-btn" data-action="restart">Restart</button>
+                <button type="button" class="control-btn" data-action="play" aria-label="Play">
+                  <svg class="control-btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </button>
+                <button type="button" class="control-btn" data-action="pause" aria-label="Pause">
+                  <svg class="control-btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M7 5h4v14H7zm6 0h4v14h-4z" />
+                  </svg>
+                </button>
+                <button type="button" class="control-btn" data-action="restart" aria-label="Restart">
+                  <svg class="control-btn__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path d="M6 5h2v14H6zM19 19 9 12l10-7z" />
+                  </svg>
+                </button>
               </div>
               <div class="demo-player__timeline-row">
                 <span data-current>0:00</span>
@@ -290,7 +326,7 @@
 
               <label>
                 Project Type
-                <input type="text" name="project_type" placeholder="Commercial, game, narration..." />
+                <input type="text" name="projectType" placeholder="Commercial, game, narration..." />
               </label>
 
               <label>
@@ -311,6 +347,7 @@
                 class="contact-form__honeypot"
                 aria-hidden="true"
               />
+              <input type="hidden" name="_subject" value="New Booking Request (Website)" />
 
               <button type="submit" class="btn btn--primary btn--full" data-submit-button>
                 Send
