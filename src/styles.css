@@ -893,6 +893,16 @@ svg {
   background: radial-gradient(circle, rgba(122, 141, 255, 0.48), transparent 70%);
 }
 
+.icon-link--email:hover,
+.icon-link--email:focus-visible {
+  border-color: rgba(233, 184, 109, 0.42);
+  box-shadow: 0 14px 28px rgba(233, 184, 109, 0.16);
+}
+
+.icon-link--email::after {
+  background: radial-gradient(circle, rgba(233, 184, 109, 0.48), transparent 70%);
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
