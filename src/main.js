@@ -16,7 +16,9 @@ function pauseOtherPlayers(currentAudio) {
   for (const player of allPlayers) {
     if (player.audio !== currentAudio) {
       player.audio.pause();
+      player.audio.currentTime = 0;
       player.root.dataset.playing = "false";
+      player.updateProgress();
     }
   }
 }
@@ -26,72 +28,44 @@ function initAudioPlayers() {
 
   playerRoots.forEach((root) => {
     const audio = root.querySelector("audio");
-    const playBtn = root.querySelector('[data-action="play"]');
-    const pauseBtn = root.querySelector('[data-action="pause"]');
-    const restartBtn = root.querySelector('[data-action="restart"]');
+    const toggleBtn = root.querySelector('[data-action="toggle"]');
     const timeline = root.querySelector("[data-timeline]");
-    const currentTimeLabel = root.querySelector("[data-current]");
-    const durationLabel = root.querySelector("[data-duration]");
+    const progress = root.querySelector("[data-progress]");
 
-    if (
-      !audio ||
-      !playBtn ||
-      !pauseBtn ||
-      !restartBtn ||
-      !timeline ||
-      !currentTimeLabel ||
-      !durationLabel
-    ) {
+    if (!audio || !toggleBtn || !timeline || !progress) {
       return;
     }
 
     root.dataset.playing = "false";
-    timeline.style.setProperty("--timeline-progress", "0%");
+    progress.style.width = "0%";
 
     const updateProgress = () => {
       const duration = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : 0;
       const current = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
       const ratio = duration ? current / duration : 0;
       const clampedRatio = Math.max(0, Math.min(ratio, 1));
+      const percent = clampedRatio * 100;
 
-      timeline.value = duration ? String(Math.round(clampedRatio * 1000)) : "0";
-      timeline.style.setProperty("--timeline-progress", `${clampedRatio * 100}%`);
-      currentTimeLabel.textContent = formatTime(current);
-      durationLabel.textContent = formatTime(duration);
+      progress.style.width = `${percent}%`;
+      timeline.setAttribute("aria-valuenow", String(Math.round(percent)));
       timeline.setAttribute("aria-valuetext", `${formatTime(current)} of ${formatTime(duration)}`);
     };
 
-    playBtn.addEventListener("click", async () => {
+    toggleBtn.addEventListener("click", async () => {
+      if (!audio.paused) {
+        audio.pause();
+        audio.currentTime = 0;
+        updateProgress();
+        return;
+      }
+
       try {
         pauseOtherPlayers(audio);
         await audio.play();
       } catch {
         // Browser blocked play or audio failed to load.
-      } finally {
         root.dataset.playing = String(!audio.paused);
       }
-    });
-
-    pauseBtn.addEventListener("click", () => {
-      audio.pause();
-      root.dataset.playing = "false";
-    });
-
-    restartBtn.addEventListener("click", async () => {
-      audio.currentTime = 0;
-      try {
-        pauseOtherPlayers(audio);
-        await audio.play();
-      } catch {
-        root.dataset.playing = String(!audio.paused);
-      }
-    });
-
-    timeline.addEventListener("input", () => {
-      if (!Number.isFinite(audio.duration) || audio.duration <= 0) return;
-      const ratio = Number(timeline.value) / 1000;
-      audio.currentTime = audio.duration * ratio;
-      updateProgress();
     });
 
     audio.addEventListener("loadedmetadata", updateProgress);
@@ -104,17 +78,17 @@ function initAudioPlayers() {
     });
     audio.addEventListener("ended", () => {
       root.dataset.playing = "false";
+      audio.currentTime = 0;
       updateProgress();
     });
     audio.addEventListener("error", () => {
-      const note = root.querySelector(".demo-player__note");
-      if (note) {
-        note.textContent = "Audio file missing. Add your reel file in /public/audio and update the source.";
-      }
+      progress.style.width = "0%";
+      timeline.setAttribute("aria-valuenow", "0");
+      timeline.setAttribute("aria-valuetext", "Audio unavailable");
     });
 
     updateProgress();
-    allPlayers.add({ root, audio });
+    allPlayers.add({ root, audio, updateProgress });
   });
 }
 

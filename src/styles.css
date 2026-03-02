@@ -461,13 +461,12 @@ svg {
   max-width: 68ch;
 }
 
-.demo-grid {
+.demo-list {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0.95rem;
+  gap: 1rem;
 }
 
-.demo-card {
+.demo-group {
   padding: 1rem;
   border-radius: var(--radius-lg);
   border: 1px solid var(--surface-border);
@@ -475,55 +474,47 @@ svg {
     linear-gradient(160deg, rgba(255, 255, 255, 0.03), transparent 45%),
     color-mix(in oklab, var(--surface) 98%, transparent);
   box-shadow: var(--shadow);
-  transition:
-    transform 220ms ease,
-    border-color 220ms ease,
-    box-shadow 220ms ease;
 }
 
-.demo-card:hover,
-.demo-card:focus-within {
-  transform: translateY(-2px);
-  border-color: rgba(233, 184, 109, 0.2);
-  box-shadow:
-    0 0 0 1px rgba(233, 184, 109, 0.08),
-    0 18px 40px rgba(0, 0, 0, 0.22);
-}
-
-.demo-card__head h3 {
-  margin: 0.35rem 0 0;
-  font-size: 1.12rem;
-  line-height: 1.2;
-}
-
-.demo-card__head p:last-child {
-  margin: 0.65rem 0 0;
-  color: var(--text-muted);
-  font-size: 0.94rem;
-}
-
-.demo-card__tag {
+.demo-group__title {
   margin: 0;
   color: var(--accent);
   font-family: "Barlow Condensed", sans-serif;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
-  font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 1.22rem;
 }
 
-.demo-player {
-  margin-top: 0.95rem;
-  padding: 0.95rem;
+.demo-group__items {
+  list-style: none;
+  margin: 0.85rem 0 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.demo-item {
   border-radius: var(--radius-md);
   border: 1px solid rgba(255, 255, 255, 0.07);
   background: rgba(255, 255, 255, 0.02);
+  padding: 0.72rem 0.78rem;
 }
 
-.demo-player__controls {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+.demo-item__label {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.83rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.demo-player {
+  margin-top: 0.6rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 0.7rem;
 }
 
 .control-btn {
@@ -532,166 +523,74 @@ svg {
   align-items: center;
   justify-content: center;
   border: 1px solid var(--surface-border);
-  background: rgba(255, 255, 255, 0.02);
-  border-radius: 0.7rem;
-  width: 2.6rem;
-  height: 2.3rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 999px;
+  width: 2.35rem;
+  height: 2.35rem;
   padding: 0;
-  flex: 0 0 auto;
   cursor: pointer;
   transition:
     transform 160ms ease,
     border-color 180ms ease,
-    background-color 180ms ease,
-    box-shadow 220ms ease;
+    background-color 180ms ease;
 }
 
 .control-btn__icon {
-  width: 1rem;
-  height: 1rem;
-  fill: currentColor;
+  pointer-events: none;
+}
+
+.control-btn__icon--play {
+  width: 0;
+  height: 0;
+  border-top: 0.38rem solid transparent;
+  border-bottom: 0.38rem solid transparent;
+  border-left: 0.6rem solid currentColor;
+  margin-left: 0.12rem;
+}
+
+.control-btn__icon--stop {
+  display: none;
+  width: 0.58rem;
+  height: 0.58rem;
+  border-radius: 0.1rem;
+  background: currentColor;
 }
 
 .control-btn:hover,
 .control-btn:focus-visible {
   transform: translateY(-1px);
   border-color: rgba(233, 184, 109, 0.28);
-  box-shadow: 0 10px 20px rgba(233, 184, 109, 0.1);
 }
 
-.demo-player[data-playing="true"] [data-action="play"] {
-  border-color: rgba(128, 236, 175, 0.28);
-  background: rgba(128, 236, 175, 0.08);
+.demo-player[data-playing="true"] .control-btn {
+  border-color: rgba(128, 236, 175, 0.35);
+  background: rgba(128, 236, 175, 0.1);
 }
 
-.demo-player__timeline-row {
-  margin-top: 0.8rem;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.55rem 0.65rem;
-  border-radius: 0.95rem;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  background:
-    radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.05), transparent 55%),
-    rgba(255, 255, 255, 0.02);
-  color: var(--text-subtle);
-  font-variant-numeric: tabular-nums;
-  font-size: 0.82rem;
+.demo-player[data-playing="true"] .control-btn__icon--play {
+  display: none;
 }
 
-.demo-player__timeline-row > span {
-  min-width: 3.2ch;
-  padding: 0.2rem 0.35rem;
-  border-radius: 0.45rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  text-align: center;
+.demo-player[data-playing="true"] .control-btn__icon--stop {
+  display: block;
 }
 
-.demo-player__timeline-row input[type="range"] {
-  --timeline-progress: 0%;
-  -webkit-appearance: none;
-  appearance: none;
-  width: 100%;
-  height: 1.35rem;
-  margin: 0;
-  background: transparent;
-  cursor: pointer;
-}
-
-.demo-player__timeline-row input[type="range"]:focus-visible {
-  outline: none;
-}
-
-.demo-player__timeline-row input[type="range"]::-webkit-slider-runnable-track {
-  height: 0.55rem;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background:
-    linear-gradient(
-      90deg,
-      rgba(134, 199, 255, 0.96) 0%,
-      rgba(233, 184, 109, 0.92) var(--timeline-progress),
-      rgba(255, 255, 255, 0.08) var(--timeline-progress),
-      rgba(255, 255, 255, 0.08) 100%
-    ),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.08));
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-}
-
-.demo-player__timeline-row input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  appearance: none;
-  width: 1rem;
-  height: 1rem;
-  margin-top: -0.25rem;
-  border-radius: 999px;
-  border: 2px solid rgba(255, 255, 255, 0.88);
-  background:
-    radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.6) 35%, transparent 36%),
-    linear-gradient(145deg, var(--accent-cool), var(--accent));
-  box-shadow:
-    0 0 0 3px rgba(233, 184, 109, 0.13),
-    0 8px 16px rgba(0, 0, 0, 0.28);
-  transition: transform 140ms ease, box-shadow 180ms ease;
-}
-
-.demo-player__timeline-row input[type="range"]:hover::-webkit-slider-thumb,
-.demo-player__timeline-row input[type="range"]:focus-visible::-webkit-slider-thumb {
-  transform: scale(1.08);
-  box-shadow:
-    0 0 0 4px rgba(233, 184, 109, 0.2),
-    0 10px 20px rgba(233, 184, 109, 0.16);
-}
-
-.demo-player__timeline-row input[type="range"]:active::-webkit-slider-thumb {
-  transform: scale(1.14);
-}
-
-.demo-player__timeline-row input[type="range"]::-moz-range-track {
-  height: 0.55rem;
+.demo-player__timeline {
+  position: relative;
+  height: 0.58rem;
   border-radius: 999px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(255, 255, 255, 0.08);
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
 }
 
-.demo-player__timeline-row input[type="range"]::-moz-range-progress {
-  height: 0.55rem;
-  border-radius: 999px;
-  background: linear-gradient(90deg, rgba(134, 199, 255, 0.96), rgba(233, 184, 109, 0.92));
-}
-
-.demo-player__timeline-row input[type="range"]::-moz-range-thumb {
-  width: 1rem;
-  height: 1rem;
-  border-radius: 999px;
-  border: 2px solid rgba(255, 255, 255, 0.88);
-  background: linear-gradient(145deg, var(--accent-cool), var(--accent));
-  box-shadow:
-    0 0 0 3px rgba(233, 184, 109, 0.13),
-    0 8px 16px rgba(0, 0, 0, 0.28);
-  transition: transform 140ms ease, box-shadow 180ms ease;
-}
-
-.demo-player__timeline-row input[type="range"]:hover::-moz-range-thumb,
-.demo-player__timeline-row input[type="range"]:focus-visible::-moz-range-thumb {
-  transform: scale(1.08);
-  box-shadow:
-    0 0 0 4px rgba(233, 184, 109, 0.2),
-    0 10px 20px rgba(233, 184, 109, 0.16);
-}
-
-.demo-player__note {
-  margin: 0.75rem 0 0;
-  color: var(--text-subtle);
-  font-size: 0.78rem;
+.demo-player__timeline-progress {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  background: rgba(233, 184, 109, 0.46);
 }
 
 .about-grid,
@@ -1069,8 +968,8 @@ svg {
 }
 
 @media (max-width: 1024px) {
-  .demo-grid {
-    grid-template-columns: 1fr;
+  .demo-list {
+    gap: 0.85rem;
   }
 
   .about-grid,
@@ -1135,13 +1034,8 @@ svg {
     height: 5.5rem;
   }
 
-  .demo-player__controls {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .control-btn {
-    width: 100%;
+  .demo-player {
+    gap: 0.62rem;
   }
 
   .site-footer {
