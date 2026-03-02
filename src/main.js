@@ -1,7 +1,9 @@
 import "./styles.css";
 
 const FORM_ENDPOINT = "https://formspree.io/f/mqedozga";
+const DEMO_PREVIEW_COUNT = 1;
 const allPlayers = new Set();
+const playersByRoot = new Map();
 
 function formatTime(seconds) {
   if (!Number.isFinite(seconds) || seconds < 0) return "0:00";
@@ -15,12 +17,16 @@ function formatTime(seconds) {
 function pauseOtherPlayers(currentAudio) {
   for (const player of allPlayers) {
     if (player.audio !== currentAudio) {
-      player.audio.pause();
-      player.audio.currentTime = 0;
-      player.root.dataset.playing = "false";
-      player.updateProgress();
+      stopPlayer(player);
     }
   }
+}
+
+function stopPlayer(player) {
+  player.audio.pause();
+  player.audio.currentTime = 0;
+  player.root.dataset.playing = "false";
+  player.updateProgress();
 }
 
 function initAudioPlayers() {
@@ -106,7 +112,61 @@ function initAudioPlayers() {
     });
 
     updateProgress();
-    allPlayers.add({ root, audio, updateProgress });
+    const player = { root, audio, updateProgress };
+    allPlayers.add(player);
+    playersByRoot.set(root, player);
+  });
+}
+
+function setDemoGroupExpanded(group, items, toggleBtn, expanded) {
+  group.dataset.expanded = String(expanded);
+
+  items.forEach((item, index) => {
+    const shouldHide = !expanded && index >= DEMO_PREVIEW_COUNT;
+    item.hidden = shouldHide;
+
+    if (!shouldHide) return;
+
+    const nestedPlayers = item.querySelectorAll("[data-player]");
+    nestedPlayers.forEach((playerRoot) => {
+      const player = playersByRoot.get(playerRoot);
+      if (player) stopPlayer(player);
+    });
+  });
+
+  toggleBtn.textContent = expanded ? "Show less" : "Show more";
+  toggleBtn.setAttribute("aria-expanded", String(expanded));
+}
+
+function initDemoGroupToggles() {
+  const groups = document.querySelectorAll(".demo-group");
+  let generatedIdCounter = 0;
+
+  groups.forEach((group) => {
+    const itemsList = group.querySelector(".demo-group__items");
+    if (!(itemsList instanceof HTMLUListElement)) return;
+
+    const items = Array.from(itemsList.querySelectorAll(":scope > .demo-item"));
+    if (items.length <= DEMO_PREVIEW_COUNT) return;
+
+    if (!itemsList.id) {
+      generatedIdCounter += 1;
+      itemsList.id = `demo-group-items-${generatedIdCounter}`;
+    }
+
+    const toggleBtn = document.createElement("button");
+    toggleBtn.type = "button";
+    toggleBtn.className = "demo-group__toggle";
+    toggleBtn.setAttribute("aria-controls", itemsList.id);
+
+    setDemoGroupExpanded(group, items, toggleBtn, false);
+
+    toggleBtn.addEventListener("click", () => {
+      const isExpanded = group.dataset.expanded === "true";
+      setDemoGroupExpanded(group, items, toggleBtn, !isExpanded);
+    });
+
+    group.append(toggleBtn);
   });
 }
 
@@ -215,5 +275,6 @@ function initFooterYear() {
 
 initRevealAnimations();
 initAudioPlayers();
+initDemoGroupToggles();
 initContactForm();
 initFooterYear();
