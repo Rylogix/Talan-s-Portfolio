@@ -39,6 +39,13 @@ function initAudioPlayers() {
     root.dataset.playing = "false";
     progress.style.width = "0%";
 
+    const configuredSrc = audio.getAttribute("src") || "";
+    const normalizedSrc = configuredSrc.replace(/^\/+/, "");
+    if (configuredSrc && configuredSrc !== normalizedSrc) {
+      audio.setAttribute("src", normalizedSrc);
+      audio.load();
+    }
+
     const updateProgress = () => {
       const duration = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : 0;
       const current = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
@@ -82,9 +89,20 @@ function initAudioPlayers() {
       updateProgress();
     });
     audio.addEventListener("error", () => {
+      const currentAttrSrc = audio.getAttribute("src") || "";
+
+      if (!root.dataset.srcFallbackTried && currentAttrSrc && !currentAttrSrc.startsWith("/")) {
+        root.dataset.srcFallbackTried = "true";
+        audio.setAttribute("src", `/${currentAttrSrc}`);
+        audio.load();
+        return;
+      }
+
       progress.style.width = "0%";
       timeline.setAttribute("aria-valuenow", "0");
       timeline.setAttribute("aria-valuetext", "Audio unavailable");
+      toggleBtn.disabled = true;
+      toggleBtn.setAttribute("aria-label", "Audio unavailable");
     });
 
     updateProgress();

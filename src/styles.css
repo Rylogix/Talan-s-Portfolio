@@ -562,6 +562,12 @@ svg {
   border-color: rgba(233, 184, 109, 0.28);
 }
 
+.control-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+  transform: none;
+}
+
 .demo-player[data-playing="true"] .control-btn {
   border-color: rgba(128, 236, 175, 0.35);
   background: rgba(128, 236, 175, 0.1);
@@ -646,6 +652,17 @@ svg {
 
 .studio-card li + li {
   margin-top: 0.35rem;
+}
+
+.studio-card a {
+  color: var(--accent-cool);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.studio-card a:hover,
+.studio-card a:focus-visible {
+  color: var(--accent-strong);
 }
 
 .studio-card__footnote {
