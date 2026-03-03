@@ -1,34 +1,34 @@
-*,
+﻿*,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
 :root {
-  color-scheme: light;
-  --bg: #f5f2e9;
-  --bg-soft: #f1ede3;
-  --surface: #f1ede3;
-  --surface-strong: #f1ede3;
-  --surface-border: #8a8a8a;
-  --text: #222222;
-  --text-muted: #8a8a8a;
-  --text-subtle: #8a8a8a;
+  color-scheme: dark;
+  --bg: #1c1c20;
+  --bg-soft: #25252b;
+  --surface: #2a2a2e;
+  --surface-strong: #2a2a2e;
+  --surface-border: #5f5f67;
+  --text: #f5f2e9;
+  --text-muted: #b4b0a7;
+  --text-subtle: #9d998f;
   --accent: #4f7fff;
   --accent-strong: #4f7fff;
   --accent-cool: #4f7fff;
   --white-ambient: rgba(245, 242, 233, 0.18);
-  --card-gray-overlay: rgba(138, 138, 138, 0.08);
-  --card-gray-soft: rgba(138, 138, 138, 0.05);
-  --card-gray-border: rgba(138, 138, 138, 0.22);
-  --card-solid-1: #f1ede3;
-  --card-solid-2: #f5f2e9;
-  --card-solid-3: #f1ede3;
-  --card-solid-border: #8a8a8a;
+  --card-gray-overlay: rgba(180, 176, 167, 0.08);
+  --card-gray-soft: rgba(180, 176, 167, 0.05);
+  --card-gray-border: rgba(180, 176, 167, 0.22);
+  --card-solid-1: #2a2a2e;
+  --card-solid-2: #34343a;
+  --card-solid-3: #303036;
+  --card-solid-border: #5f5f67;
   --card-gradient-1: var(--card-solid-1);
   --card-gradient-2: var(--card-solid-2);
   --card-gradient-3: var(--card-solid-3);
-  --card-gradient-3-hover: #f5f2e9;
+  --card-gradient-3-hover: #3a3a41;
   --card-shadow-md: 0 10px 22px rgba(0, 0, 0, 0.28);
   --card-shadow-lg: 0 14px 30px rgba(0, 0, 0, 0.32);
   --danger: #4f7fff;
@@ -120,16 +120,16 @@ svg {
   color: var(--text-muted);
   font-weight: 600;
   font-size: 0.92rem;
-  border: 1px solid #8a8a8a;
-  background: #f1ede3;
+  border: 1px solid #5f5f67;
+  background: #2a2a2e;
   transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
 }
 
 .header-home:hover,
 .header-home:focus-visible {
   color: var(--text);
-  background: #f5f2e9;
-  border-color: #8a8a8a;
+  background: #303036;
+  border-color: #5f5f67;
 }
 .brand {
   display: inline-flex;
@@ -148,8 +148,8 @@ svg {
   font-weight: 700;
   font-size: 1.05rem;
   letter-spacing: 0.06em;
-  border: 1px solid #8a8a8a;
-  background: #f5f2e9;
+  border: 1px solid #5f5f67;
+  background: #303036;
 }
 
 .brand__copy {
@@ -175,8 +175,8 @@ svg {
   gap: 0.35rem;
   padding: 0.2rem;
   border-radius: 999px;
-  background: #f1ede3;
-  border: 1px solid #8a8a8a;
+  background: #2a2a2e;
+  border: 1px solid #5f5f67;
 }
 
 .site-nav a {
@@ -191,7 +191,7 @@ svg {
 .site-nav a:hover,
 .site-nav a:focus-visible {
   color: var(--text);
-  background: #f5f2e9;
+  background: #303036;
 }
 
 .hero {
@@ -310,7 +310,7 @@ svg {
 }
 
 .btn--ghost {
-  background: #f1ede3;
+  background: #2a2a2e;
 }
 
 .btn--full {
@@ -400,8 +400,8 @@ svg {
   margin-top: 1.1rem;
   padding: 0.8rem;
   border-radius: 0.9rem;
-  border: 1px solid #8a8a8a;
-  background: #f1ede3;
+  border: 1px solid #5f5f67;
+  background: #2a2a2e;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   align-items: end;
@@ -529,7 +529,7 @@ svg {
   margin-top: 0.82rem;
   border: 1px solid var(--surface-border);
   border-radius: 999px;
-  background: #f1ede3;
+  background: #2a2a2e;
   color: var(--text);
   font: inherit;
   font-size: 0.74rem;
@@ -553,7 +553,7 @@ svg {
 
 .demo-item {
   border-radius: var(--radius-md);
-  border: 1px solid #8a8a8a;
+  border: 1px solid #5f5f67;
   background: var(--card-gradient-3);
   padding: 0.72rem 0.78rem;
   box-shadow:
@@ -590,7 +590,7 @@ svg {
   align-items: center;
   justify-content: center;
   border: 1px solid var(--surface-border);
-  background: #f1ede3;
+  background: #2a2a2e;
   border-radius: 999px;
   width: 2.35rem;
   height: 2.35rem;
@@ -652,8 +652,8 @@ svg {
   position: relative;
   height: 0.58rem;
   border-radius: 999px;
-  border: 1px solid #8a8a8a;
-  background: #f1ede3;
+  border: 1px solid #5f5f67;
+  background: #2a2a2e;
   overflow: hidden;
   pointer-events: none;
   user-select: none;
@@ -772,7 +772,7 @@ svg {
   border-radius: 0.7rem;
   border: 1px solid var(--surface-border);
   color: var(--text-muted);
-  background: #f1ede3;
+  background: #2a2a2e;
   transition:
     border-color 180ms ease,
     color 180ms ease,
@@ -900,7 +900,7 @@ svg {
   .studio-card:hover,
   .contact-card:hover {
     transform: translateY(-3px);
-    border-color: #8a8a8a;
+    border-color: #5f5f67;
     box-shadow:
       inset 0 1px 0 rgba(245, 242, 233, 0.18),
       inset 0 -1px 0 rgba(0, 0, 0, 0.1),
@@ -909,7 +909,7 @@ svg {
 
   .demo-item:hover {
     transform: translateY(-2px);
-    border-color: #8a8a8a;
+    border-color: #5f5f67;
     background: var(--card-gradient-3-hover);
     box-shadow:
       inset 0 1px 0 rgba(245, 242, 233, 0.18),
@@ -921,7 +921,7 @@ svg {
   .contact-list--icons a:focus-visible {
     transform: translateY(-2px);
     background: var(--card-gradient-3-hover);
-    border-color: #8a8a8a;
+    border-color: #5f5f67;
   }
 }
 
@@ -955,7 +955,7 @@ svg {
   border-radius: 0.8rem;
   border: 1px solid var(--surface-border);
   padding: 0.75rem 0.85rem;
-  background: #f1ede3;
+  background: #2a2a2e;
   color: var(--text);
   transition:
     border-color 160ms ease,
@@ -975,7 +975,7 @@ svg {
   box-shadow:
     0 0 0 1px rgba(79, 127, 255, 0.2),
     0 10px 20px rgba(79, 127, 255, 0.14);
-  background: #f1ede3;
+  background: #2a2a2e;
 }
 
 .contact-form input::placeholder,
@@ -1193,6 +1193,8 @@ svg {
     scroll-behavior: auto !important;
   }
 }
+
+
 
 
 
