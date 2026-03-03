@@ -156,9 +156,9 @@
       }
 
       .hero__name-wrap {
-        min-height: 1.12em;
+        min-height: 1.2em;
         width: 100%;
-        overflow: clip;
+        overflow: visible;
       }
 
       .hero__name {
@@ -167,9 +167,9 @@
         max-inline-size: 100%;
         text-transform: uppercase;
         font-family: "Anton", "Arial Narrow", sans-serif;
-        font-size: clamp(3.7rem, 14.5vw, 10rem);
+        font-size: clamp(3.1rem, 12.5vw, 8.6rem);
         line-height: 0.9;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.065em;
         white-space: nowrap;
         transform-origin: center center;
         will-change: transform;
@@ -178,7 +178,7 @@
       }
 
       .hero__name.is-glitching {
-        letter-spacing: 0.1em;
+        letter-spacing: 0.08em;
         text-shadow:
           0 0 36px rgba(166, 210, 188, 0.46),
           -2px 0 rgba(255, 255, 255, 0.48),
@@ -399,7 +399,7 @@
           if (!(titleWrap instanceof HTMLElement)) return;
           title.style.transform = "scale(1)";
 
-          const availableWidth = titleWrap.clientWidth;
+          const availableWidth = titleWrap.clientWidth * 0.94;
           const textWidth = title.scrollWidth;
 
           if (availableWidth <= 0 || textWidth <= 0) return;
