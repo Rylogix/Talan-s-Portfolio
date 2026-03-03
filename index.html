@@ -7,7 +7,7 @@
       name="description"
       content="Talan Gray portfolio landing page with social links and voice acting site access."
     />
-    <meta name="theme-color" content="#040807" />
+    <meta name="theme-color" content="#000000" />
     <title>Talan Gray | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,17 +18,17 @@
     <style>
       :root {
         color-scheme: dark;
-        --bg: #040807;
-        --bg-soft: #0a130f;
-        --surface: rgba(12, 20, 16, 0.72);
-        --surface-strong: rgba(11, 18, 14, 0.9);
-        --surface-border: rgba(170, 210, 191, 0.28);
-        --text: #effff6;
-        --text-muted: #bdd6c6;
-        --accent: #a6d2b7;
-        --accent-strong: #d4e9dd;
-        --white-ambient: rgba(255, 255, 255, 0.22);
-        --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+        --bg: #000000;
+        --bg-soft: #000000;
+        --surface: rgba(0, 0, 0, 0.72);
+        --surface-strong: rgba(0, 0, 0, 0.92);
+        --surface-border: rgba(35, 235, 0, 0.42);
+        --text: #ffffff;
+        --text-muted: rgba(255, 255, 255, 0.82);
+        --accent: #23eb00;
+        --accent-strong: #23eb00;
+        --white-ambient: rgba(255, 255, 255, 0.2);
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.62);
       }
 
       *,
@@ -48,11 +48,11 @@
         color: var(--text);
         font-family: "Manrope", "Segoe UI", sans-serif;
         background:
-          radial-gradient(58rem 34rem at 12% -8%, rgba(168, 208, 188, 0.22), transparent),
+          radial-gradient(58rem 34rem at 12% -8%, rgba(35, 235, 0, 0.2), transparent),
           radial-gradient(54rem 32rem at 86% 2%, var(--white-ambient), transparent),
           radial-gradient(42rem 24rem at 52% 22%, rgba(255, 255, 255, 0.11), transparent),
-          radial-gradient(55rem 30rem at 50% 110%, rgba(54, 147, 95, 0.24), transparent),
-          linear-gradient(180deg, #030706, #07110d 35%, #040807);
+          radial-gradient(55rem 30rem at 50% 110%, rgba(35, 235, 0, 0.18), transparent),
+          linear-gradient(180deg, #000000, #000000 35%, #000000);
         line-height: 1.5;
       }
 
@@ -184,16 +184,16 @@
         white-space: nowrap;
         transform-origin: center center;
         will-change: transform;
-        text-shadow: 0 0 30px rgba(166, 210, 188, 0.34), 0 0 14px rgba(255, 255, 255, 0.24);
+        text-shadow: 0 0 30px rgba(35, 235, 0, 0.34), 0 0 14px rgba(255, 255, 255, 0.24);
         transition: letter-spacing 120ms linear, text-shadow 120ms linear, opacity 120ms linear;
       }
 
       .hero__name.is-glitching {
         letter-spacing: 0.08em;
         text-shadow:
-          0 0 36px rgba(166, 210, 188, 0.46),
+          0 0 36px rgba(35, 235, 0, 0.46),
           -2px 0 rgba(255, 255, 255, 0.48),
-          2px 0 rgba(146, 206, 178, 0.45);
+          2px 0 rgba(35, 235, 0, 0.45);
       }
 
       .hero__subtitle {
@@ -243,8 +243,8 @@
         min-height: 3.25rem;
         padding: 0.8rem;
         border-radius: 0.9rem;
-        border: 1px solid rgba(205, 211, 214, 0.3);
-        background: rgba(73, 80, 84, 0.72);
+        border: 1px solid rgba(35, 235, 0, 0.44);
+        background: rgba(255, 255, 255, 0.08);
         color: var(--text);
         transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease;
         box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 8px 26px rgba(0, 0, 0, 0.18);
@@ -252,8 +252,8 @@
 
       .social-link:hover {
         transform: translateY(-2px);
-        border-color: rgba(219, 224, 227, 0.8);
-        background: rgba(86, 93, 97, 0.78);
+        border-color: rgba(35, 235, 0, 0.86);
+        background: rgba(255, 255, 255, 0.14);
       }
 
       .social-link__icon {
@@ -471,4 +471,5 @@
     </script>
   </body>
 </html>
+
 
