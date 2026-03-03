@@ -5,542 +5,398 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Talan Gray voice actor portfolio featuring demo reels, studio details, and a direct booking contact form."
+      content="Talan Gray portfolio landing page with social links and voice acting site access."
     />
-    <meta name="theme-color" content="#0d1016" />
+    <meta name="theme-color" content="#040807" />
+    <title>Talan Gray | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Barlow+Condensed:wght@600;700&family=Bebas+Neue&family=Manrope:wght@500;600;700;800&family=Oswald:wght@500;700&family=Teko:wght@500;700&display=swap"
       rel="stylesheet"
     />
-    <title>Talan Gray | Voice Actor</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #040807;
+        --bg-soft: #0a130f;
+        --surface: rgba(12, 20, 16, 0.72);
+        --surface-strong: rgba(11, 18, 14, 0.9);
+        --surface-border: rgba(112, 255, 183, 0.28);
+        --text: #effff6;
+        --text-muted: #bdd6c6;
+        --accent: #66ffac;
+        --accent-strong: #9fffd0;
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+      }
+
+      body {
+        min-height: 100vh;
+        color: var(--text);
+        font-family: "Manrope", "Segoe UI", sans-serif;
+        background:
+          radial-gradient(55rem 30rem at 12% -5%, rgba(98, 255, 174, 0.26), transparent),
+          radial-gradient(45rem 28rem at 90% 8%, rgba(255, 255, 255, 0.15), transparent),
+          radial-gradient(55rem 30rem at 50% 110%, rgba(54, 147, 95, 0.24), transparent),
+          linear-gradient(180deg, #030706, #07110d 35%, #040807);
+        line-height: 1.5;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        opacity: 0.06;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+        background-size: 26px 26px;
+        mask-image: radial-gradient(circle at center, black 22%, transparent 80%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .shell {
+        width: min(1080px, calc(100% - 2rem));
+        margin-inline: auto;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0.7rem;
+        z-index: 30;
+        width: min(1140px, calc(100% - 1rem));
+        margin-inline: auto;
+        margin-top: 0.7rem;
+        border-radius: 999px;
+        border: 1px solid var(--surface-border);
+        background: color-mix(in oklab, var(--surface-strong) 86%, transparent);
+        backdrop-filter: blur(18px);
+        box-shadow: var(--shadow);
+      }
+
+      .site-header__inner {
+        min-height: 4rem;
+        padding: 0.5rem 1rem;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .brand {
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .site-nav {
+        grid-column: 2;
+      }
+
+      .site-nav a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 2.45rem;
+        padding: 0.4rem 1.1rem;
+        border-radius: 999px;
+        border: 1px solid rgba(102, 255, 172, 0.45);
+        background: rgba(102, 255, 172, 0.12);
+        color: var(--text);
+        font-size: 0.86rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+      }
+
+      .site-nav a:hover {
+        background: rgba(102, 255, 172, 0.2);
+        border-color: rgba(150, 255, 206, 0.85);
+        transform: translateY(-1px);
+      }
+
+      .site-nav a:focus-visible,
+      .tree-link:focus-visible {
+        outline: 2px solid var(--accent-strong);
+        outline-offset: 3px;
+      }
+
+      .top-note {
+        justify-self: end;
+        color: rgba(189, 214, 198, 0.82);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      main {
+        padding-bottom: 3rem;
+      }
+
+      .hero {
+        padding-top: clamp(3rem, 8vw, 5.5rem);
+        padding-bottom: 1.8rem;
+        text-align: center;
+      }
+
+      .hero__name-wrap {
+        min-height: 1.12em;
+      }
+
+      .hero__name {
+        margin: 0;
+        text-transform: uppercase;
+        font-family: "Anton", "Arial Narrow", sans-serif;
+        font-size: clamp(4.2rem, 16vw, 11rem);
+        line-height: 0.9;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+        text-shadow: 0 0 28px rgba(102, 255, 172, 0.4);
+        transition: letter-spacing 120ms linear, text-shadow 120ms linear, opacity 120ms linear;
+      }
+
+      .hero__name.is-glitching {
+        letter-spacing: 0.1em;
+        text-shadow:
+          0 0 34px rgba(102, 255, 172, 0.58),
+          -2px 0 rgba(255, 255, 255, 0.4),
+          2px 0 rgba(39, 255, 132, 0.45);
+      }
+
+      .hero__subtitle {
+        margin: 0.9rem 0 0;
+        color: var(--text-muted);
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: clamp(0.95rem, 2vw, 1.2rem);
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      }
+
+      .tree {
+        width: min(680px, 100%);
+        margin-inline: auto;
+        margin-top: 1.5rem;
+        border-radius: 1.2rem;
+        border: 1px solid rgba(102, 255, 172, 0.24);
+        background: color-mix(in oklab, var(--surface) 90%, transparent);
+        backdrop-filter: blur(14px);
+        box-shadow: var(--shadow);
+        padding: clamp(1rem, 2.3vw, 1.55rem);
+      }
+
+      .tree__title {
+        margin: 0 0 0.75rem;
+        font-family: "Barlow Condensed", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent-strong);
+      }
+
+      .tree-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.75rem;
+      }
+
+      .tree-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.75rem;
+        width: 100%;
+        min-height: 3.25rem;
+        padding: 0.8rem 0.95rem;
+        border-radius: 0.9rem;
+        border: 1px solid rgba(102, 255, 172, 0.28);
+        background:
+          linear-gradient(120deg, rgba(102, 255, 172, 0.14), rgba(255, 255, 255, 0.08));
+        color: var(--text);
+        transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease;
+      }
+
+      .tree-link:hover {
+        transform: translateY(-2px);
+        border-color: rgba(163, 255, 212, 0.8);
+        background:
+          linear-gradient(120deg, rgba(102, 255, 172, 0.22), rgba(255, 255, 255, 0.12));
+      }
+
+      .tree-link__name {
+        font-size: 1rem;
+        font-weight: 800;
+      }
+
+      .tree-link__url {
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        font-weight: 700;
+      }
+
+      @media (max-width: 760px) {
+        .site-header__inner {
+          grid-template-columns: 1fr auto;
+        }
+
+        .top-note {
+          display: none;
+        }
+
+        .hero__name {
+          white-space: normal;
+        }
+
+        .tree-link {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero__name,
+        .site-nav a,
+        .tree-link {
+          transition: none;
+        }
+      }
+    </style>
   </head>
   <body>
-    <div class="ambient-layer" aria-hidden="true"></div>
     <header class="site-header">
-      <nav class="site-nav" aria-label="Primary">
-        <a href="#demos">Demos</a>
-        <a href="#about">About Me</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="site-header__inner">
+        <p class="brand" aria-label="Site title">Talan Gray</p>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="/va/">Voice Acting</a>
+        </nav>
+        <p class="top-note" aria-hidden="true">Portfolio</p>
+      </div>
     </header>
 
-    <main id="top">
-      <section class="hero section shell" id="hero">
-        <div class="hero__content" data-reveal>
-          <h1>Talan Gray</h1>
-          <p class="hero__title">Voice Actor</p>
-          <ul class="hero__stats" aria-label="Quick highlights">
-            <li>
-              <strong>24h</strong>
-              <span>Typical turnaround</span>
-            </li>
-            <li>
-              <strong>Adaptable</strong>
-              <span>Anything upon request</span>
-            </li>
-            <li>
-              <strong>Directed</strong>
-              <span>Live session friendly</span>
-            </li>
-          </ul>
+    <main class="shell">
+      <section class="hero" aria-labelledby="home-title">
+        <div class="hero__name-wrap">
+          <h1 id="home-title" class="hero__name" data-glitch-title>TALAN GRAY</h1>
         </div>
+        <p class="hero__subtitle">Voice Actor | Creator</p>
       </section>
 
-      <section class="section shell" id="demos" aria-labelledby="demos-title">
-        <div class="section-head" data-reveal>
-          <p class="eyebrow">Demo Reels</p>
-          <h2 id="demos-title">How i sound</h2>
-          <p>
-            These are demo voice samples so you can hear how I sound in different settings.
-          </p>
-        </div>
-
-        <div class="demo-list">
-          <article class="demo-group" data-reveal>
-            <h3 class="demo-group__title">Character</h3>
-            <ul class="demo-group__items">
-              <li class="demo-item">
-                <p class="demo-item__label">Sukuna 1</p>
-                <div class="demo-player" data-player>
-                  <audio preload="metadata" src="audio/character-recording-2.mp3"></audio>
-                  <button
-                    type="button"
-                    class="control-btn"
-                    data-action="toggle"
-                    aria-label="Play or stop Character Sukuna 1"
-                  >
-                    <span class="control-btn__icon control-btn__icon--play" aria-hidden="true"></span>
-                    <span class="control-btn__icon control-btn__icon--stop" aria-hidden="true"></span>
-                  </button>
-                  <div
-                    class="demo-player__timeline"
-                    data-timeline
-                    role="progressbar"
-                    aria-label="Playback progress for Character Sukuna 1"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    aria-valuenow="0"
-                    aria-valuetext="0:00 of 0:00"
-                  >
-                    <span class="demo-player__timeline-progress" data-progress></span>
-                  </div>
-                </div>
-              </li>
-              <li class="demo-item">
-                <p class="demo-item__label">Sukuna 2</p>
-                <div class="demo-player" data-player>
-                  <audio preload="metadata" src="audio/character-sukuna-era.mp3"></audio>
-                  <button
-                    type="button"
-                    class="control-btn"
-                    data-action="toggle"
-                    aria-label="Play or stop Character Sukuna 2"
-                  >
-                    <span class="control-btn__icon control-btn__icon--play" aria-hidden="true"></span>
-                    <span class="control-btn__icon control-btn__icon--stop" aria-hidden="true"></span>
-                  </button>
-                  <div
-                    class="demo-player__timeline"
-                    data-timeline
-                    role="progressbar"
-                    aria-label="Playback progress for Character Sukuna 2"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    aria-valuenow="0"
-                    aria-valuetext="0:00 of 0:00"
-                  >
-                    <span class="demo-player__timeline-progress" data-progress></span>
-                  </div>
-                </div>
-              </li>
-              <li class="demo-item">
-                <p class="demo-item__label">Second chance</p>
-                <div class="demo-player" data-player>
-                  <audio preload="metadata" src="audio/character-recording-16.mp3"></audio>
-                  <button
-                    type="button"
-                    class="control-btn"
-                    data-action="toggle"
-                    aria-label="Play or stop Character Second chance"
-                  >
-                    <span class="control-btn__icon control-btn__icon--play" aria-hidden="true"></span>
-                    <span class="control-btn__icon control-btn__icon--stop" aria-hidden="true"></span>
-                  </button>
-                  <div
-                    class="demo-player__timeline"
-                    data-timeline
-                    role="progressbar"
-                    aria-label="Playback progress for Character Second chance"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    aria-valuenow="0"
-                    aria-valuetext="0:00 of 0:00"
-                  >
-                    <span class="demo-player__timeline-progress" data-progress></span>
-                  </div>
-                </div>
-              </li>
-              <li class="demo-item">
-                <p class="demo-item__label">Blueprint</p>
-                <div class="demo-player" data-player>
-                  <audio preload="metadata" src="audio/character-recording-17.mp3"></audio>
-                  <button
-                    type="button"
-                    class="control-btn"
-                    data-action="toggle"
-                    aria-label="Play or stop Character Blueprint"
-                  >
-                    <span class="control-btn__icon control-btn__icon--play" aria-hidden="true"></span>
-                    <span class="control-btn__icon control-btn__icon--stop" aria-hidden="true"></span>
-                  </button>
-                  <div
-                    class="demo-player__timeline"
-                    data-timeline
-                    role="progressbar"
-                    aria-label="Playback progress for Character Blueprint"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    aria-valuenow="0"
-                    aria-valuetext="0:00 of 0:00"
-                  >
-                    <span class="demo-player__timeline-progress" data-progress></span>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </article>
-
-          <article class="demo-group" data-reveal>
-            <h3 class="demo-group__title">Commercial</h3>
-            <ul class="demo-group__items">
-              <li class="demo-item">
-                <p class="demo-item__label">Commercial 1</p>
-                <div class="demo-player" data-player>
-                  <audio preload="metadata" src="audio/commercial-recording-14.mp3"></audio>
-                  <button
-                    type="button"
-                    class="control-btn"
-                    data-action="toggle"
-                    aria-label="Play or stop Commercial 1"
-                  >
-                    <span class="control-btn__icon control-btn__icon--play" aria-hidden="true"></span>
-                    <span class="control-btn__icon control-btn__icon--stop" aria-hidden="true"></span>
-                  </button>
-                  <div
-                    class="demo-player__timeline"
-                    data-timeline
-                    role="progressbar"
-                    aria-label="Playback progress for Commercial 1"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    aria-valuenow="0"
-                    aria-valuetext="0:00 of 0:00"
-                  >
-                    <span class="demo-player__timeline-progress" data-progress></span>
-                  </div>
-                </div>
-              </li>
-              <li class="demo-item">
-                <p class="demo-item__label">Commercial 2</p>
-                <div class="demo-player" data-player>
-                  <audio preload="metadata" src="audio/commercial-recording-15.mp3"></audio>
-                  <button
-                    type="button"
-                    class="control-btn"
-                    data-action="toggle"
-                    aria-label="Play or stop Commercial 2"
-                  >
-                    <span class="control-btn__icon control-btn__icon--play" aria-hidden="true"></span>
-                    <span class="control-btn__icon control-btn__icon--stop" aria-hidden="true"></span>
-                  </button>
-                  <div
-                    class="demo-player__timeline"
-                    data-timeline
-                    role="progressbar"
-                    aria-label="Playback progress for Commercial 2"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    aria-valuenow="0"
-                    aria-valuetext="0:00 of 0:00"
-                  >
-                    <span class="demo-player__timeline-progress" data-progress></span>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </article>
-
-          <article class="demo-group" data-reveal>
-            <h3 class="demo-group__title">Narration</h3>
-            <ul class="demo-group__items">
-              <li class="demo-item">
-                <p class="demo-item__label">Recording 1</p>
-                <div class="demo-player" data-player>
-                  <audio preload="metadata" src="audio/narration-recording-11.mp3"></audio>
-                  <button
-                    type="button"
-                    class="control-btn"
-                    data-action="toggle"
-                    aria-label="Play or stop Narration recording 1"
-                  >
-                    <span class="control-btn__icon control-btn__icon--play" aria-hidden="true"></span>
-                    <span class="control-btn__icon control-btn__icon--stop" aria-hidden="true"></span>
-                  </button>
-                  <div
-                    class="demo-player__timeline"
-                    data-timeline
-                    role="progressbar"
-                    aria-label="Playback progress for Narration recording 1"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    aria-valuenow="0"
-                    aria-valuetext="0:00 of 0:00"
-                  >
-                    <span class="demo-player__timeline-progress" data-progress></span>
-                  </div>
-                </div>
-              </li>
-              <li class="demo-item">
-                <p class="demo-item__label">Recording 2</p>
-                <div class="demo-player" data-player>
-                  <audio preload="metadata" src="audio/narration-recording-13.mp3"></audio>
-                  <button
-                    type="button"
-                    class="control-btn"
-                    data-action="toggle"
-                    aria-label="Play or stop Narration recording 2"
-                  >
-                    <span class="control-btn__icon control-btn__icon--play" aria-hidden="true"></span>
-                    <span class="control-btn__icon control-btn__icon--stop" aria-hidden="true"></span>
-                  </button>
-                  <div
-                    class="demo-player__timeline"
-                    data-timeline
-                    role="progressbar"
-                    aria-label="Playback progress for Narration recording 2"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    aria-valuenow="0"
-                    aria-valuetext="0:00 of 0:00"
-                  >
-                    <span class="demo-player__timeline-progress" data-progress></span>
-                  </div>
-                </div>
-              </li>
-              <li class="demo-item">
-                <p class="demo-item__label">Recording 3</p>
-                <div class="demo-player" data-player>
-                  <audio preload="metadata" src="audio/narration-recording-12.mp3"></audio>
-                  <button
-                    type="button"
-                    class="control-btn"
-                    data-action="toggle"
-                    aria-label="Play or stop Narration recording 3"
-                  >
-                    <span class="control-btn__icon control-btn__icon--play" aria-hidden="true"></span>
-                    <span class="control-btn__icon control-btn__icon--stop" aria-hidden="true"></span>
-                  </button>
-                  <div
-                    class="demo-player__timeline"
-                    data-timeline
-                    role="progressbar"
-                    aria-label="Playback progress for Narration recording 3"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    aria-valuenow="0"
-                    aria-valuetext="0:00 of 0:00"
-                  >
-                    <span class="demo-player__timeline-progress" data-progress></span>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section class="section shell" id="about" aria-labelledby="about-title">
-        <div class="about-grid">
-          <div class="about-copy" data-reveal>
-            <p class="eyebrow">About Me</p>
-            <h2 id="about-title">My name is Talan Gray, and I'm a voice actor who takes what I do seriously.</h2>
-            <p>
-              I've always been someone who follows through, keeps my word, and puts 100% into
-              everything I commit to. When I say I'm going to do something, I do it.
-            </p>
-            <p>
-              I'm very adaptable. I've moved states multiple times and learned how to adjust fast,
-              meet new people, and figure things out quickly. That's helped me a lot with voice
-              acting because I'm comfortable stepping into different roles, different emotions, and
-              different perspectives.
-            </p>
-            <p>
-              I'm also a very empathetic person. I naturally think about how other people feel,
-              which helps me understand characters on a deeper level. Whether it's intense,
-              emotional, energetic, or laid-back, I focus on making performances feel real instead
-              of forced.
-            </p>
-            <p>
-              I care about growth. I'm building my portfolio the right way, taking on projects that
-              challenge me, and constantly improving my craft. My goal isn't just to "do voices."
-              It's to bring characters to life in a way that feels authentic and memorable.
-            </p>
-          </div>
-
-          <div class="studio-panel" data-reveal>
-            <div class="studio-card">
-              <h3>My setup</h3>
-              <ul>
-                <li>
-                  Mic:
-                  <a
-                    href="https://www.amazon.com/Rode-NT1-5th-Generation-Microphone/dp/B0BQHHZ1QQ?th=1"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Rode NT1 5th Gen
-                  </a>
-                </li>
-                <li>
-                  XLR Interface:
-                  <a
-                    href="https://us.focusrite.com/products/scarlett-solo"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    Focusrite Scarlett adapter
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </section>
-
-      <section class="section shell" id="contact" aria-labelledby="contact-title">
-        <div class="contact-grid">
-          <div class="contact-copy" data-reveal>
-            <p class="eyebrow">Contact / Booking</p>
-            <h2 id="contact-title">Book Talan for your next project</h2>
-            <p>
-              Send project details, timeline, and usage notes. For the fastest response, include
-              script length, style references, and target delivery date.
-            </p>
-            <p class="contact-warning" role="note">
-              Communication is mainly by email. If you'd like to contact me any other way use one
-              of the following apps below.
-            </p>
-
-            <div class="contact-list contact-list--icons" aria-label="Contact links">
-              <a
-                class="icon-link icon-link--instagram"
-                href="https://instagram.com/talangrayvoice"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-                title="Instagram"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect
-                    x="3.25"
-                    y="3.25"
-                    width="17.5"
-                    height="17.5"
-                    rx="5"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                  />
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="4.1"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                  />
-                  <circle cx="17.25" cy="6.75" r="1.15" fill="currentColor" />
-                </svg>
-                <span class="sr-only">Instagram</span>
-              </a>
-
-              <a
-                class="icon-link icon-link--x"
-                href="https://x.com/talangrayvoice"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="X"
-                title="X"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M5 4.5h3.4l4 5.65L17.3 4.5H19l-5.75 6.75L19.5 20h-3.4l-4.25-6-5.1 6H5l6.1-7.15L5 4.5Zm3.1 1.8 8.15 11.9h1.2L9.3 6.3H8.1Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <span class="sr-only">X</span>
-              </a>
-
-              <a
-                class="icon-link icon-link--discord"
-                href="https://discord.com/users/your-id"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Discord"
-                title="Discord"
-              >
-                <img
-                  src="/icons/discord-streamline.png"
-                  alt=""
-                  class="icon-link__img icon-link__img--discord"
-                  aria-hidden="true"
-                />
-                <span class="sr-only">Discord</span>
-              </a>
-
-              <a
-                class="icon-link icon-link--email"
-                href="mailto:Talangrayva@gmail.com"
-                aria-label="Email"
-                title="Talangrayva@gmail.com"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect
-                    x="3"
-                    y="6"
-                    width="18"
-                    height="12"
-                    rx="2"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                  />
-                  <path
-                    d="M4 7.5 12 13.2 20 7.5"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <span class="sr-only">Email</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="contact-card" data-reveal>
-            <form class="contact-form" data-contact-form novalidate>
-              <label>
-                Your Email / Or other platforms
-                <input type="email" name="email" autocomplete="email" required />
-              </label>
-
-              <label>
-                Project Type
-                <input type="text" name="projectType" placeholder="Commercial, game, narration..." />
-              </label>
-
-              <label>
-                Message
-                <textarea
-                  name="message"
-                  rows="6"
-                  required
-                  placeholder="Tell me about the project, script length, direction, and deadline."
-                ></textarea>
-              </label>
-
-              <input
-                type="text"
-                name="_gotcha"
-                tabindex="-1"
-                autocomplete="off"
-                class="contact-form__honeypot"
-                aria-hidden="true"
-              />
-              <input type="hidden" name="_subject" value="New Booking Request (Website)" />
-
-              <button type="submit" class="btn btn--primary btn--full" data-submit-button>
-                Send
-              </button>
-              <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-            </form>
-          </div>
-        </div>
+      <section class="tree" aria-labelledby="connect-title">
+        <h2 class="tree__title" id="connect-title">Find Me</h2>
+        <ul class="tree-links">
+          <li>
+            <a
+              class="tree-link"
+              href="https://discord.gg/KKA3ttRNbu"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="tree-link__name">Discord Server</span>
+              <span class="tree-link__url">discord.gg/KKA3ttRNbu</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="tree-link"
+              href="https://www.youtube.com/@Pahnduhhh"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="tree-link__name">YouTube</span>
+              <span class="tree-link__url">youtube.com/@Pahnduhhh</span>
+            </a>
+          </li>
+          <li>
+            <a
+              class="tree-link"
+              href="https://www.tiktok.com/@pahndaa_"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span class="tree-link__name">TikTok</span>
+              <span class="tree-link__url">tiktok.com/@pahndaa_</span>
+            </a>
+          </li>
+        </ul>
       </section>
     </main>
 
-    <footer class="site-footer shell">
-      <p>© Rylogix. All rights reserved.</p>
-    </footer>
+    <script>
+      (() => {
+        const title = document.querySelector("[data-glitch-title]");
+        if (!title) return;
 
-    <a class="book-now" href="#contact">Book Now</a>
+        const fontCycle = [
+          '"Anton", "Arial Narrow", sans-serif',
+          '"Bebas Neue", "Arial Narrow", sans-serif',
+          '"Archivo Black", "Arial Black", sans-serif',
+          '"Oswald", "Arial Narrow", sans-serif',
+          '"Teko", "Arial Narrow", sans-serif',
+          '"Barlow Condensed", "Arial Narrow", sans-serif'
+        ];
 
-    <script type="module" src="/src/main.js"></script>
+        let settledIndex = 0;
+        title.style.fontFamily = fontCycle[settledIndex];
+
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          return;
+        }
+
+        const glitchWindowMs = 520;
+        const glitchStepMs = 45;
+        const cycleEveryMs = 2400;
+
+        const runGlitch = () => {
+          const targetIndex = (settledIndex + 1) % fontCycle.length;
+          const finishAt = Date.now() + glitchWindowMs;
+
+          title.classList.add("is-glitching");
+
+          const glitchTicker = window.setInterval(() => {
+            const randomIndex = Math.floor(Math.random() * fontCycle.length);
+            title.style.fontFamily = fontCycle[randomIndex];
+
+            if (Date.now() >= finishAt) {
+              window.clearInterval(glitchTicker);
+              settledIndex = targetIndex;
+              title.style.fontFamily = fontCycle[settledIndex];
+              title.classList.remove("is-glitching");
+            }
+          }, glitchStepMs);
+        };
+
+        const loop = () => {
+          runGlitch();
+          window.setTimeout(loop, cycleEveryMs);
+        };
+
+        window.setTimeout(loop, cycleEveryMs);
+      })();
+    </script>
   </body>
 </html>
-

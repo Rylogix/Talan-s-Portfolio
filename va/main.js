@@ -45,13 +45,6 @@ function initAudioPlayers() {
     root.dataset.playing = "false";
     progress.style.width = "0%";
 
-    const configuredSrc = audio.getAttribute("src") || "";
-    const normalizedSrc = configuredSrc.replace(/^\/+/, "");
-    if (configuredSrc && configuredSrc !== normalizedSrc) {
-      audio.setAttribute("src", normalizedSrc);
-      audio.load();
-    }
-
     const updateProgress = () => {
       const duration = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : 0;
       const current = Number.isFinite(audio.currentTime) ? audio.currentTime : 0;
@@ -97,9 +90,14 @@ function initAudioPlayers() {
     audio.addEventListener("error", () => {
       const currentAttrSrc = audio.getAttribute("src") || "";
 
-      if (!root.dataset.srcFallbackTried && currentAttrSrc && !currentAttrSrc.startsWith("/")) {
+      if (
+        !root.dataset.srcFallbackTried &&
+        currentAttrSrc &&
+        !currentAttrSrc.startsWith("/") &&
+        !/^(https?:|data:|blob:)/i.test(currentAttrSrc)
+      ) {
         root.dataset.srcFallbackTried = "true";
-        audio.setAttribute("src", `/${currentAttrSrc}`);
+        audio.setAttribute("src", `/${currentAttrSrc.replace(/^\/+/, "")}`);
         audio.load();
         return;
       }
