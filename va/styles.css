@@ -10,13 +10,13 @@
   --bg-soft: #0a130f;
   --surface: rgba(12, 20, 16, 0.72);
   --surface-strong: rgba(11, 18, 14, 0.9);
-  --surface-border: rgba(112, 255, 183, 0.28);
+  --surface-border: rgba(170, 210, 191, 0.28);
   --text: #effff6;
   --text-muted: #bdd6c6;
   --text-subtle: #9ab8a8;
-  --accent: #66ffac;
-  --accent-strong: #9fffd0;
-  --accent-cool: #ddffee;
+  --accent: #a6d2b7;
+  --accent-strong: #d4e9dd;
+  --accent-cool: #dbe8e0;
   --white-ambient: rgba(255, 255, 255, 0.22);
   --danger: #ff8a8a;
   --success: #7ff3be;
@@ -35,7 +35,7 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(58rem 34rem at 12% -8%, rgba(98, 255, 174, 0.28), transparent),
+    radial-gradient(58rem 34rem at 12% -8%, rgba(168, 208, 188, 0.22), transparent),
     radial-gradient(54rem 32rem at 86% 2%, var(--white-ambient), transparent),
     radial-gradient(42rem 24rem at 52% 22%, rgba(255, 255, 255, 0.11), transparent),
     radial-gradient(55rem 30rem at 50% 110%, rgba(54, 147, 95, 0.24), transparent),
@@ -161,7 +161,7 @@ svg {
   border: 1px solid rgba(255, 255, 255, 0.14);
   background:
     radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.2), transparent 65%),
-    linear-gradient(135deg, rgba(102, 255, 172, 0.24), rgba(255, 255, 255, 0.16));
+    linear-gradient(135deg, rgba(166, 210, 188, 0.24), rgba(255, 255, 255, 0.16));
 }
 
 .brand__copy {
@@ -290,7 +290,7 @@ svg {
   position: absolute;
   inset: auto 10% -0.35rem;
   height: 0.65rem;
-  background: radial-gradient(circle, rgba(102, 255, 172, 0.45), transparent 70%);
+  background: radial-gradient(circle, rgba(166, 210, 188, 0.45), transparent 70%);
   filter: blur(8px);
   opacity: 0.55;
   transition: opacity 220ms ease, transform 220ms ease;
@@ -310,17 +310,17 @@ svg {
 
 .btn--primary {
   background:
-    linear-gradient(135deg, rgba(102, 255, 172, 0.24), rgba(255, 255, 255, 0.12)),
+    linear-gradient(135deg, rgba(166, 210, 188, 0.24), rgba(255, 255, 255, 0.12)),
     rgba(255, 255, 255, 0.03);
-  border-color: rgba(102, 255, 172, 0.32);
+  border-color: rgba(166, 210, 188, 0.32);
 }
 
 .btn--primary:hover,
 .btn--primary:focus-visible {
-  border-color: rgba(102, 255, 172, 0.46);
+  border-color: rgba(166, 210, 188, 0.46);
   box-shadow:
-    0 0 0 1px rgba(102, 255, 172, 0.18),
-    0 16px 36px rgba(102, 255, 172, 0.14);
+    0 0 0 1px rgba(166, 210, 188, 0.18),
+    0 16px 36px rgba(166, 210, 188, 0.14);
 }
 
 .btn--ghost {
@@ -370,7 +370,7 @@ svg {
   border-radius: var(--radius-lg);
   background:
     radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.06), transparent 45%),
-    linear-gradient(165deg, rgba(102, 255, 172, 0.08), rgba(255, 255, 255, 0.06)),
+    linear-gradient(165deg, rgba(166, 210, 188, 0.08), rgba(255, 255, 255, 0.06)),
     var(--surface-strong);
   box-shadow: var(--shadow);
 }
@@ -413,7 +413,7 @@ svg {
 .hero-card__wave span {
   height: calc((var(--i, 1) * 6%) + 24%);
   border-radius: 999px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(102, 255, 172, 0.65));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(166, 210, 188, 0.65));
   opacity: 0.88;
   transform-origin: center bottom;
   animation: pulse-wave 3.8s ease-in-out infinite;
@@ -542,8 +542,8 @@ svg {
 .demo-group__toggle:hover,
 .demo-group__toggle:focus-visible {
   transform: translateY(-1px);
-  border-color: rgba(102, 255, 172, 0.36);
-  background: rgba(102, 255, 172, 0.08);
+  border-color: rgba(166, 210, 188, 0.36);
+  background: rgba(166, 210, 188, 0.08);
 }
 
 .demo-item {
@@ -612,7 +612,7 @@ svg {
 .control-btn:hover,
 .control-btn:focus-visible {
   transform: translateY(-1px);
-  border-color: rgba(102, 255, 172, 0.28);
+  border-color: rgba(166, 210, 188, 0.28);
 }
 
 .control-btn:disabled {
@@ -649,7 +649,7 @@ svg {
   position: absolute;
   inset: 0 auto 0 0;
   width: 0;
-  background: rgba(102, 255, 172, 0.46);
+  background: rgba(166, 210, 188, 0.46);
 }
 
 .about-grid,
@@ -679,7 +679,7 @@ svg {
   border-radius: var(--radius-lg);
   border: 1px solid var(--surface-border);
   background:
-    linear-gradient(165deg, rgba(102, 255, 172, 0.06), rgba(255, 255, 255, 0.03)),
+    linear-gradient(165deg, rgba(166, 210, 188, 0.06), rgba(255, 255, 255, 0.03)),
     var(--surface-strong);
   box-shadow: var(--shadow);
 }
@@ -734,9 +734,9 @@ svg {
   margin: 0.85rem 0 0;
   padding: 0.7rem 0.8rem;
   border-radius: 0.9rem;
-  border: 1px solid rgba(102, 255, 172, 0.3);
+  border: 1px solid rgba(166, 210, 188, 0.3);
   background:
-    linear-gradient(135deg, rgba(102, 255, 172, 0.12), rgba(102, 255, 172, 0.04)),
+    linear-gradient(135deg, rgba(166, 210, 188, 0.12), rgba(166, 210, 188, 0.04)),
     rgba(255, 255, 255, 0.015);
   color: color-mix(in oklab, var(--accent) 84%, var(--text));
   font-size: 0.9rem;
@@ -764,8 +764,8 @@ svg {
 .contact-list a:focus-visible {
   color: var(--text);
   transform: translateY(-1px);
-  border-color: rgba(102, 255, 172, 0.28);
-  box-shadow: 0 12px 24px rgba(102, 255, 172, 0.08);
+  border-color: rgba(166, 210, 188, 0.28);
+  box-shadow: 0 12px 24px rgba(166, 210, 188, 0.08);
 }
 
 .contact-list--icons {
@@ -829,12 +829,12 @@ svg {
 
 .icon-link--instagram:hover,
 .icon-link--instagram:focus-visible {
-  border-color: rgba(102, 255, 172, 0.38);
-  box-shadow: 0 14px 28px rgba(102, 255, 172, 0.14);
+  border-color: rgba(166, 210, 188, 0.38);
+  box-shadow: 0 14px 28px rgba(166, 210, 188, 0.14);
 }
 
 .icon-link--instagram::after {
-  background: radial-gradient(circle, rgba(102, 255, 172, 0.52), transparent 70%);
+  background: radial-gradient(circle, rgba(166, 210, 188, 0.52), transparent 70%);
 }
 
 .icon-link--x:hover,
@@ -854,22 +854,22 @@ svg {
 
 .icon-link--discord:hover,
 .icon-link--discord:focus-visible {
-  border-color: rgba(102, 255, 172, 0.42);
-  box-shadow: 0 14px 28px rgba(102, 255, 172, 0.16);
+  border-color: rgba(166, 210, 188, 0.42);
+  box-shadow: 0 14px 28px rgba(166, 210, 188, 0.16);
 }
 
 .icon-link--discord::after {
-  background: radial-gradient(circle, rgba(102, 255, 172, 0.48), transparent 70%);
+  background: radial-gradient(circle, rgba(166, 210, 188, 0.48), transparent 70%);
 }
 
 .icon-link--email:hover,
 .icon-link--email:focus-visible {
-  border-color: rgba(102, 255, 172, 0.42);
-  box-shadow: 0 14px 28px rgba(102, 255, 172, 0.16);
+  border-color: rgba(166, 210, 188, 0.42);
+  box-shadow: 0 14px 28px rgba(166, 210, 188, 0.16);
 }
 
 .icon-link--email::after {
-  background: radial-gradient(circle, rgba(102, 255, 172, 0.48), transparent 70%);
+  background: radial-gradient(circle, rgba(166, 210, 188, 0.48), transparent 70%);
 }
 
 .sr-only {
@@ -918,10 +918,10 @@ svg {
 .contact-form input:focus-visible,
 .contact-form textarea:focus-visible {
   outline: none;
-  border-color: rgba(102, 255, 172, 0.35);
+  border-color: rgba(166, 210, 188, 0.35);
   box-shadow:
-    0 0 0 1px rgba(102, 255, 172, 0.18),
-    0 10px 20px rgba(102, 255, 172, 0.08);
+    0 0 0 1px rgba(166, 210, 188, 0.18),
+    0 10px 20px rgba(166, 210, 188, 0.08);
   background: rgba(255, 255, 255, 0.03);
 }
 
@@ -979,14 +979,14 @@ svg {
   z-index: 60;
   padding: 0.85rem 1rem;
   border-radius: 999px;
-  border: 1px solid rgba(102, 255, 172, 0.34);
+  border: 1px solid rgba(166, 210, 188, 0.34);
   background:
-    linear-gradient(135deg, rgba(102, 255, 172, 0.22), rgba(255, 255, 255, 0.12)),
+    linear-gradient(135deg, rgba(166, 210, 188, 0.22), rgba(255, 255, 255, 0.12)),
     color-mix(in oklab, var(--surface-strong) 90%, transparent);
   backdrop-filter: blur(16px);
   box-shadow:
-    0 0 0 1px rgba(102, 255, 172, 0.1),
-    0 18px 36px rgba(102, 255, 172, 0.18);
+    0 0 0 1px rgba(166, 210, 188, 0.1),
+    0 18px 36px rgba(166, 210, 188, 0.18);
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -999,8 +999,8 @@ svg {
 .book-now:focus-visible {
   transform: translateY(-2px);
   box-shadow:
-    0 0 0 1px rgba(102, 255, 172, 0.14),
-    0 24px 42px rgba(102, 255, 172, 0.22);
+    0 0 0 1px rgba(166, 210, 188, 0.14),
+    0 24px 42px rgba(166, 210, 188, 0.22);
 }
 
 [data-reveal] {
@@ -1017,7 +1017,7 @@ svg {
 }
 
 :focus-visible {
-  outline: 2px solid rgba(102, 255, 172, 0.55);
+  outline: 2px solid rgba(166, 210, 188, 0.55);
   outline-offset: 2px;
 }
 
@@ -1143,5 +1143,6 @@ svg {
     scroll-behavior: auto !important;
   }
 }
+
 
 
