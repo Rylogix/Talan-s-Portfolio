@@ -1,4 +1,4 @@
-*,
+﻿*,
 *::before,
 *::after {
   box-sizing: border-box;
@@ -6,20 +6,21 @@
 
 :root {
   color-scheme: dark;
-  --bg: #0b0f14;
-  --bg-soft: #121923;
-  --surface: rgba(20, 27, 37, 0.78);
-  --surface-strong: rgba(16, 22, 31, 0.92);
-  --surface-border: rgba(255, 255, 255, 0.1);
-  --text: #eef3fb;
-  --text-muted: #c1cad8;
-  --text-subtle: #95a1b4;
-  --accent: #e9b86d;
-  --accent-strong: #ffd59a;
-  --accent-cool: #86c7ff;
+  --bg: #040807;
+  --bg-soft: #0a130f;
+  --surface: rgba(12, 20, 16, 0.72);
+  --surface-strong: rgba(11, 18, 14, 0.9);
+  --surface-border: rgba(112, 255, 183, 0.28);
+  --text: #effff6;
+  --text-muted: #bdd6c6;
+  --text-subtle: #9ab8a8;
+  --accent: #66ffac;
+  --accent-strong: #9fffd0;
+  --accent-cool: #ddffee;
+  --white-ambient: rgba(255, 255, 255, 0.22);
   --danger: #ff8a8a;
-  --success: #80ecaf;
-  --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  --success: #7ff3be;
+  --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
   --radius-lg: 1.25rem;
   --radius-md: 0.95rem;
   --radius-sm: 0.6rem;
@@ -34,10 +35,11 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 10% 10%, rgba(134, 199, 255, 0.13), transparent 45%),
-    radial-gradient(circle at 90% 20%, rgba(233, 184, 109, 0.15), transparent 48%),
-    radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.03), transparent 50%),
-    var(--bg);
+    radial-gradient(58rem 34rem at 12% -8%, rgba(98, 255, 174, 0.28), transparent),
+    radial-gradient(54rem 32rem at 86% 2%, var(--white-ambient), transparent),
+    radial-gradient(42rem 24rem at 52% 22%, rgba(255, 255, 255, 0.11), transparent),
+    radial-gradient(55rem 30rem at 50% 110%, rgba(54, 147, 95, 0.24), transparent),
+    linear-gradient(180deg, #030706, #07110d 35%, #040807);
   color: var(--text);
   font-family: "Manrope", system-ui, sans-serif;
   line-height: 1.5;
@@ -48,12 +50,12 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  opacity: 0.08;
+  opacity: 0.085;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 22px 22px;
-  mask-image: radial-gradient(circle at center, black 20%, transparent 80%);
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(circle at center, black 22%, transparent 80%);
 }
 
 .ambient-layer {
@@ -62,10 +64,10 @@ body::before {
   pointer-events: none;
   z-index: -1;
   background:
-    radial-gradient(55rem 28rem at 15% -5%, rgba(134, 199, 255, 0.1), transparent),
-    radial-gradient(40rem 24rem at 92% 8%, rgba(233, 184, 109, 0.12), transparent),
-    radial-gradient(26rem 14rem at 50% 35%, rgba(255, 255, 255, 0.03), transparent);
-  filter: blur(12px);
+    radial-gradient(34rem 20rem at 26% 34%, rgba(255, 255, 255, 0.11), transparent),
+    radial-gradient(28rem 18rem at 76% 66%, rgba(255, 255, 255, 0.09), transparent);
+  mix-blend-mode: screen;
+  opacity: 0.45;
 }
 
 a {
@@ -97,23 +99,48 @@ svg {
 
 .site-header {
   position: sticky;
-  top: 0;
-  z-index: 50;
-  height: var(--header-h);
-  width: min(1180px, calc(100% - 1rem));
-  margin: 0.6rem auto 0;
-  padding: 0.6rem 0.8rem;
+  top: 0.7rem;
+  z-index: 30;
+  width: min(1140px, calc(100% - 1rem));
+  margin-inline: auto;
+  margin-top: 0.7rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 999px;
+  background: color-mix(in oklab, var(--surface-strong) 82%, rgba(255, 255, 255, 0.18));
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow), 0 0 26px rgba(255, 255, 255, 0.08);
+}
+
+.site-header__inner {
+  min-height: 4rem;
+  padding: 0.5rem 1rem;
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 0.75rem;
-  border: 1px solid var(--surface-border);
-  border-radius: 999px;
-  background: color-mix(in oklab, var(--surface-strong) 86%, transparent);
-  backdrop-filter: blur(18px);
-  box-shadow: var(--shadow);
 }
 
+.header-home {
+  justify-self: start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.45rem;
+  padding: 0.55rem 0.9rem;
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.92rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+.header-home:hover,
+.header-home:focus-visible {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.12);
+}
 .brand {
   display: inline-flex;
   align-items: center;
@@ -134,7 +161,7 @@ svg {
   border: 1px solid rgba(255, 255, 255, 0.14);
   background:
     radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.2), transparent 65%),
-    linear-gradient(135deg, rgba(233, 184, 109, 0.22), rgba(134, 199, 255, 0.14));
+    linear-gradient(135deg, rgba(102, 255, 172, 0.24), rgba(255, 255, 255, 0.16));
 }
 
 .brand__copy {
@@ -263,7 +290,7 @@ svg {
   position: absolute;
   inset: auto 10% -0.35rem;
   height: 0.65rem;
-  background: radial-gradient(circle, rgba(233, 184, 109, 0.45), transparent 70%);
+  background: radial-gradient(circle, rgba(102, 255, 172, 0.45), transparent 70%);
   filter: blur(8px);
   opacity: 0.55;
   transition: opacity 220ms ease, transform 220ms ease;
@@ -283,17 +310,17 @@ svg {
 
 .btn--primary {
   background:
-    linear-gradient(135deg, rgba(233, 184, 109, 0.24), rgba(134, 199, 255, 0.12)),
+    linear-gradient(135deg, rgba(102, 255, 172, 0.24), rgba(255, 255, 255, 0.12)),
     rgba(255, 255, 255, 0.03);
-  border-color: rgba(233, 184, 109, 0.32);
+  border-color: rgba(102, 255, 172, 0.32);
 }
 
 .btn--primary:hover,
 .btn--primary:focus-visible {
-  border-color: rgba(233, 184, 109, 0.46);
+  border-color: rgba(102, 255, 172, 0.46);
   box-shadow:
-    0 0 0 1px rgba(233, 184, 109, 0.18),
-    0 16px 36px rgba(233, 184, 109, 0.14);
+    0 0 0 1px rgba(102, 255, 172, 0.18),
+    0 16px 36px rgba(102, 255, 172, 0.14);
 }
 
 .btn--ghost {
@@ -343,7 +370,7 @@ svg {
   border-radius: var(--radius-lg);
   background:
     radial-gradient(circle at 20% 15%, rgba(255, 255, 255, 0.06), transparent 45%),
-    linear-gradient(165deg, rgba(233, 184, 109, 0.08), rgba(134, 199, 255, 0.06)),
+    linear-gradient(165deg, rgba(102, 255, 172, 0.08), rgba(255, 255, 255, 0.06)),
     var(--surface-strong);
   box-shadow: var(--shadow);
 }
@@ -386,7 +413,7 @@ svg {
 .hero-card__wave span {
   height: calc((var(--i, 1) * 6%) + 24%);
   border-radius: 999px;
-  background: linear-gradient(180deg, rgba(134, 199, 255, 0.8), rgba(233, 184, 109, 0.65));
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(102, 255, 172, 0.65));
   opacity: 0.88;
   transform-origin: center bottom;
   animation: pulse-wave 3.8s ease-in-out infinite;
@@ -515,8 +542,8 @@ svg {
 .demo-group__toggle:hover,
 .demo-group__toggle:focus-visible {
   transform: translateY(-1px);
-  border-color: rgba(233, 184, 109, 0.36);
-  background: rgba(233, 184, 109, 0.08);
+  border-color: rgba(102, 255, 172, 0.36);
+  background: rgba(102, 255, 172, 0.08);
 }
 
 .demo-item {
@@ -585,7 +612,7 @@ svg {
 .control-btn:hover,
 .control-btn:focus-visible {
   transform: translateY(-1px);
-  border-color: rgba(233, 184, 109, 0.28);
+  border-color: rgba(102, 255, 172, 0.28);
 }
 
 .control-btn:disabled {
@@ -622,7 +649,7 @@ svg {
   position: absolute;
   inset: 0 auto 0 0;
   width: 0;
-  background: rgba(233, 184, 109, 0.46);
+  background: rgba(102, 255, 172, 0.46);
 }
 
 .about-grid,
@@ -652,7 +679,7 @@ svg {
   border-radius: var(--radius-lg);
   border: 1px solid var(--surface-border);
   background:
-    linear-gradient(165deg, rgba(233, 184, 109, 0.06), rgba(134, 199, 255, 0.03)),
+    linear-gradient(165deg, rgba(102, 255, 172, 0.06), rgba(255, 255, 255, 0.03)),
     var(--surface-strong);
   box-shadow: var(--shadow);
 }
@@ -707,9 +734,9 @@ svg {
   margin: 0.85rem 0 0;
   padding: 0.7rem 0.8rem;
   border-radius: 0.9rem;
-  border: 1px solid rgba(233, 184, 109, 0.3);
+  border: 1px solid rgba(102, 255, 172, 0.3);
   background:
-    linear-gradient(135deg, rgba(233, 184, 109, 0.12), rgba(233, 184, 109, 0.04)),
+    linear-gradient(135deg, rgba(102, 255, 172, 0.12), rgba(102, 255, 172, 0.04)),
     rgba(255, 255, 255, 0.015);
   color: color-mix(in oklab, var(--accent) 84%, var(--text));
   font-size: 0.9rem;
@@ -737,8 +764,8 @@ svg {
 .contact-list a:focus-visible {
   color: var(--text);
   transform: translateY(-1px);
-  border-color: rgba(233, 184, 109, 0.28);
-  box-shadow: 0 12px 24px rgba(233, 184, 109, 0.08);
+  border-color: rgba(102, 255, 172, 0.28);
+  box-shadow: 0 12px 24px rgba(102, 255, 172, 0.08);
 }
 
 .contact-list--icons {
@@ -802,12 +829,12 @@ svg {
 
 .icon-link--instagram:hover,
 .icon-link--instagram:focus-visible {
-  border-color: rgba(255, 116, 173, 0.38);
-  box-shadow: 0 14px 28px rgba(255, 116, 173, 0.14);
+  border-color: rgba(102, 255, 172, 0.38);
+  box-shadow: 0 14px 28px rgba(102, 255, 172, 0.14);
 }
 
 .icon-link--instagram::after {
-  background: radial-gradient(circle, rgba(255, 116, 173, 0.52), transparent 70%);
+  background: radial-gradient(circle, rgba(102, 255, 172, 0.52), transparent 70%);
 }
 
 .icon-link--x:hover,
@@ -827,22 +854,22 @@ svg {
 
 .icon-link--discord:hover,
 .icon-link--discord:focus-visible {
-  border-color: rgba(122, 141, 255, 0.42);
-  box-shadow: 0 14px 28px rgba(122, 141, 255, 0.16);
+  border-color: rgba(102, 255, 172, 0.42);
+  box-shadow: 0 14px 28px rgba(102, 255, 172, 0.16);
 }
 
 .icon-link--discord::after {
-  background: radial-gradient(circle, rgba(122, 141, 255, 0.48), transparent 70%);
+  background: radial-gradient(circle, rgba(102, 255, 172, 0.48), transparent 70%);
 }
 
 .icon-link--email:hover,
 .icon-link--email:focus-visible {
-  border-color: rgba(233, 184, 109, 0.42);
-  box-shadow: 0 14px 28px rgba(233, 184, 109, 0.16);
+  border-color: rgba(102, 255, 172, 0.42);
+  box-shadow: 0 14px 28px rgba(102, 255, 172, 0.16);
 }
 
 .icon-link--email::after {
-  background: radial-gradient(circle, rgba(233, 184, 109, 0.48), transparent 70%);
+  background: radial-gradient(circle, rgba(102, 255, 172, 0.48), transparent 70%);
 }
 
 .sr-only {
@@ -891,10 +918,10 @@ svg {
 .contact-form input:focus-visible,
 .contact-form textarea:focus-visible {
   outline: none;
-  border-color: rgba(233, 184, 109, 0.35);
+  border-color: rgba(102, 255, 172, 0.35);
   box-shadow:
-    0 0 0 1px rgba(233, 184, 109, 0.18),
-    0 10px 20px rgba(233, 184, 109, 0.08);
+    0 0 0 1px rgba(102, 255, 172, 0.18),
+    0 10px 20px rgba(102, 255, 172, 0.08);
   background: rgba(255, 255, 255, 0.03);
 }
 
@@ -952,14 +979,14 @@ svg {
   z-index: 60;
   padding: 0.85rem 1rem;
   border-radius: 999px;
-  border: 1px solid rgba(233, 184, 109, 0.34);
+  border: 1px solid rgba(102, 255, 172, 0.34);
   background:
-    linear-gradient(135deg, rgba(233, 184, 109, 0.22), rgba(134, 199, 255, 0.12)),
+    linear-gradient(135deg, rgba(102, 255, 172, 0.22), rgba(255, 255, 255, 0.12)),
     color-mix(in oklab, var(--surface-strong) 90%, transparent);
   backdrop-filter: blur(16px);
   box-shadow:
-    0 0 0 1px rgba(233, 184, 109, 0.1),
-    0 18px 36px rgba(233, 184, 109, 0.18);
+    0 0 0 1px rgba(102, 255, 172, 0.1),
+    0 18px 36px rgba(102, 255, 172, 0.18);
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -972,8 +999,8 @@ svg {
 .book-now:focus-visible {
   transform: translateY(-2px);
   box-shadow:
-    0 0 0 1px rgba(233, 184, 109, 0.14),
-    0 24px 42px rgba(233, 184, 109, 0.22);
+    0 0 0 1px rgba(102, 255, 172, 0.14),
+    0 24px 42px rgba(102, 255, 172, 0.22);
 }
 
 [data-reveal] {
@@ -990,7 +1017,7 @@ svg {
 }
 
 :focus-visible {
-  outline: 2px solid rgba(233, 184, 109, 0.55);
+  outline: 2px solid rgba(102, 255, 172, 0.55);
   outline-offset: 2px;
 }
 
@@ -1038,13 +1065,18 @@ svg {
   .site-header {
     margin-top: 0.4rem;
     border-radius: 1rem;
+  }
+
+  .site-header__inner {
+    min-height: auto;
+    padding: 0.7rem;
     grid-template-columns: 1fr auto;
     align-items: start;
     gap: 0.7rem;
-    height: auto;
   }
 
-  .brand {
+  .brand,
+  .header-home {
     grid-column: 1 / 2;
   }
 
@@ -1111,3 +1143,5 @@ svg {
     scroll-behavior: auto !important;
   }
 }
+
+

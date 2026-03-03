@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,11 +19,14 @@
   <body>
     <div class="ambient-layer" aria-hidden="true"></div>
     <header class="site-header">
-      <nav class="site-nav" aria-label="Primary">
-        <a href="#demos">Demos</a>
-        <a href="#about">About Me</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="site-header__inner">
+        <a class="header-home" href="/">Home</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#demos">Demos</a>
+          <a href="#about">About Me</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
     </header>
 
     <main id="top">
@@ -535,7 +538,7 @@
     </main>
 
     <footer class="site-footer shell">
-      <p>� Rylogix. All rights reserved.</p>
+      <p>© Rylogix. All rights reserved.</p>
     </footer>
 
     <a class="book-now" href="#contact">Book Now</a>
@@ -543,5 +546,6 @@
     <script type="module" src="/va/main.js"></script>
   </body>
 </html>
+
 
 
