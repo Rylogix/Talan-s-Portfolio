@@ -210,6 +210,7 @@ async function handleContactSubmit(event) {
   const payload = {
     email: String(formData.get("email") || ""),
     projectType: String(formData.get("projectType") || ""),
+    estimatedBudget: String(formData.get("estimatedBudget") || ""),
     message: String(formData.get("message") || ""),
     _gotcha: String(formData.get("_gotcha") || ""),
     _subject: String(formData.get("_subject") || "")
