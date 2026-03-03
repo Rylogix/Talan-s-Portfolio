@@ -149,6 +149,17 @@
         padding-bottom: 3rem;
       }
 
+      .site-footer {
+        padding: 0.6rem 0 2.2rem;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.88rem;
+      }
+
+      .site-footer p {
+        margin: 0;
+      }
+
       .hero {
         padding-top: clamp(3rem, 8vw, 5.5rem);
         padding-bottom: 1.8rem;
@@ -232,19 +243,17 @@
         min-height: 3.25rem;
         padding: 0.8rem;
         border-radius: 0.9rem;
-        border: 1px solid rgba(184, 216, 201, 0.45);
-        background:
-          linear-gradient(120deg, rgba(166, 210, 188, 0.14), rgba(255, 255, 255, 0.16));
+        border: 1px solid rgba(205, 211, 214, 0.3);
+        background: rgba(73, 80, 84, 0.72);
         color: var(--text);
         transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease;
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08), 0 8px 26px rgba(255, 255, 255, 0.05);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 8px 26px rgba(0, 0, 0, 0.18);
       }
 
       .social-link:hover {
         transform: translateY(-2px);
-        border-color: rgba(209, 227, 217, 0.92);
-        background:
-          linear-gradient(120deg, rgba(166, 210, 188, 0.2), rgba(255, 255, 255, 0.2));
+        border-color: rgba(219, 224, 227, 0.8);
+        background: rgba(86, 93, 97, 0.78);
       }
 
       .social-link__icon {
@@ -373,6 +382,10 @@
         </ul>
       </section>
     </main>
+
+    <footer class="site-footer shell">
+      <p>© Rylogix. All rights reserved.</p>
+    </footer>
 
     <script>
       (() => {
