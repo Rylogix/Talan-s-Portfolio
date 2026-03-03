@@ -29,6 +29,10 @@
         --accent-strong: #d4e9dd;
         --white-ambient: rgba(255, 255, 255, 0.22);
         --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+        --card-solid-1: rgba(80, 87, 92, 0.82);
+        --card-solid-2: rgba(93, 100, 105, 0.86);
+        --card-border: rgba(220, 225, 228, 0.34);
+        --card-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
       }
 
       *,
@@ -229,38 +233,61 @@
         margin: 0;
         padding: 0;
         display: grid;
-        gap: 0.75rem;
-        grid-template-columns: repeat(3, minmax(5.25rem, 6.25rem));
+        gap: 0.9rem;
+        grid-template-columns: repeat(3, minmax(5.35rem, 6.5rem));
         justify-content: center;
       }
 
       .social-link {
+        position: relative;
+        overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 0;
         width: 100%;
-        min-height: 3.25rem;
-        padding: 0.8rem;
-        border-radius: 0.9rem;
-        border: 1px solid rgba(205, 211, 214, 0.3);
-        background: rgba(73, 80, 84, 0.72);
+        min-height: 3.5rem;
+        padding: 0.84rem;
+        border-radius: 1rem;
+        border: 1px solid var(--card-border);
+        background: var(--card-solid-1);
         color: var(--text);
-        transition: transform 160ms ease, border-color 160ms ease, background-color 160ms ease;
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 8px 26px rgba(0, 0, 0, 0.18);
+        transition:
+          transform 180ms ease,
+          border-color 180ms ease,
+          background-color 180ms ease,
+          box-shadow 220ms ease;
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.08),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.18),
+          var(--card-shadow);
+      }
+
+      .social-link::before {
+        content: "";
+        position: absolute;
+        inset: 1px 1px auto;
+        height: 1px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.34);
+        opacity: 0.6;
       }
 
       .social-link:hover {
-        transform: translateY(-2px);
-        border-color: rgba(219, 224, 227, 0.8);
-        background: rgba(86, 93, 97, 0.78);
+        transform: translateY(-3px);
+        border-color: rgba(228, 233, 235, 0.7);
+        background: var(--card-solid-2);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.11),
+          inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+          0 18px 36px rgba(0, 0, 0, 0.32);
       }
 
       .social-link__icon {
         flex: 0 0 auto;
-        width: 1.65rem;
-        height: 1.65rem;
-        color: var(--accent-strong);
+        width: 1.72rem;
+        height: 1.72rem;
+        color: #f3fbf7;
       }
 
       @media (max-width: 760px) {
