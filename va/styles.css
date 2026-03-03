@@ -25,6 +25,34 @@
   --card-solid-2: rgba(84, 91, 96, 0.84);
   --card-solid-3: rgba(97, 104, 109, 0.8);
   --card-solid-border: rgba(220, 225, 228, 0.32);
+  --card-gradient-1:
+    linear-gradient(
+      155deg,
+      rgba(52, 62, 58, 0.9) 0%,
+      rgba(63, 73, 68, 0.9) 56%,
+      rgba(48, 57, 54, 0.92) 100%
+    );
+  --card-gradient-2:
+    linear-gradient(
+      155deg,
+      rgba(60, 70, 66, 0.92) 0%,
+      rgba(72, 82, 77, 0.92) 56%,
+      rgba(56, 65, 61, 0.94) 100%
+    );
+  --card-gradient-3:
+    linear-gradient(
+      155deg,
+      rgba(68, 78, 73, 0.9) 0%,
+      rgba(80, 91, 86, 0.9) 56%,
+      rgba(63, 73, 69, 0.92) 100%
+    );
+  --card-gradient-3-hover:
+    linear-gradient(
+      155deg,
+      rgba(76, 87, 82, 0.92) 0%,
+      rgba(89, 100, 95, 0.92) 56%,
+      rgba(70, 80, 76, 0.94) 100%
+    );
   --card-shadow-md: 0 12px 28px rgba(0, 0, 0, 0.24);
   --card-shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.28);
   --danger: #ff8a8a;
@@ -352,7 +380,7 @@ svg {
 
 .hero__stats li {
   padding: 0.9rem 0.85rem;
-  background: var(--card-solid-1);
+  background: var(--card-gradient-1);
   border: 1px solid var(--card-solid-border);
   border-radius: var(--radius-md);
   box-shadow:
@@ -385,7 +413,7 @@ svg {
   min-height: 100%;
   border: 1px solid var(--card-solid-border);
   border-radius: var(--radius-lg);
-  background: var(--card-solid-2);
+  background: var(--card-gradient-2);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     inset 0 -1px 0 rgba(0, 0, 0, 0.16),
@@ -519,7 +547,7 @@ svg {
   padding: 1rem;
   border-radius: var(--radius-lg);
   border: 1px solid var(--card-solid-border);
-  background: var(--card-solid-1);
+  background: var(--card-gradient-1);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     inset 0 -1px 0 rgba(0, 0, 0, 0.16),
@@ -577,7 +605,7 @@ svg {
 .demo-item {
   border-radius: var(--radius-md);
   border: 1px solid rgba(220, 225, 228, 0.28);
-  background: var(--card-solid-3);
+  background: var(--card-gradient-3);
   padding: 0.72rem 0.78rem;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
@@ -715,7 +743,7 @@ svg {
   padding: 1rem;
   border-radius: var(--radius-lg);
   border: 1px solid var(--card-solid-border);
-  background: var(--card-solid-2);
+  background: var(--card-gradient-2);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     inset 0 -1px 0 rgba(0, 0, 0, 0.16),
@@ -778,7 +806,7 @@ svg {
   padding: 0.7rem 0.8rem;
   border-radius: 0.9rem;
   border: 1px solid var(--card-solid-border);
-  background: var(--card-solid-3);
+  background: var(--card-gradient-3);
   color: #ffd24a;
   font-size: 0.9rem;
   line-height: 1.45;
@@ -824,7 +852,7 @@ svg {
   border-radius: 1rem;
   justify-content: center;
   border-color: var(--card-solid-border);
-  background: var(--card-solid-3);
+  background: var(--card-gradient-3);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
     inset 0 -1px 0 rgba(0, 0, 0, 0.16),
@@ -919,8 +947,6 @@ svg {
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .hero__stats li:hover,
-  .hero-card:hover,
   .demo-group:hover,
   .studio-card:hover,
   .contact-card:hover {
@@ -935,7 +961,7 @@ svg {
   .demo-item:hover {
     transform: translateY(-2px);
     border-color: rgba(232, 236, 238, 0.42);
-    background: rgba(104, 111, 116, 0.82);
+    background: var(--card-gradient-3-hover);
     box-shadow:
       inset 0 1px 0 rgba(255, 255, 255, 0.12),
       inset 0 -1px 0 rgba(0, 0, 0, 0.2),
@@ -945,7 +971,7 @@ svg {
   .contact-list--icons a:hover,
   .contact-list--icons a:focus-visible {
     transform: translateY(-2px);
-    background: rgba(106, 113, 118, 0.84);
+    background: var(--card-gradient-3-hover);
     border-color: rgba(232, 236, 238, 0.46);
   }
 }

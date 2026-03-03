@@ -7,7 +7,7 @@
       name="description"
       content="Talan Gray portfolio landing page with social links and voice acting site access."
     />
-    <meta name="theme-color" content="#040807" />
+    <meta name="theme-color" content="#f5f7f5" />
     <title>Talan Gray | Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,22 +17,21 @@
     />
     <style>
       :root {
-        color-scheme: dark;
-        --bg: #040807;
-        --bg-soft: #0a130f;
-        --surface: rgba(12, 20, 16, 0.72);
-        --surface-strong: rgba(11, 18, 14, 0.9);
-        --surface-border: rgba(170, 210, 191, 0.28);
-        --text: #effff6;
-        --text-muted: #bdd6c6;
-        --accent: #a6d2b7;
-        --accent-strong: #d4e9dd;
-        --white-ambient: rgba(255, 255, 255, 0.22);
-        --shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
-        --card-solid-1: rgba(80, 87, 92, 0.82);
-        --card-solid-2: rgba(93, 100, 105, 0.86);
-        --card-border: rgba(220, 225, 228, 0.34);
-        --card-shadow: 0 14px 32px rgba(0, 0, 0, 0.28);
+        color-scheme: light;
+        --bg: #f5f7f5;
+        --bg-soft: #ffffff;
+        --surface: #ffffff;
+        --surface-strong: #ffffff;
+        --surface-border: #c6ccc6;
+        --text: #0f120f;
+        --text-muted: #4e554e;
+        --accent: #2f8f2f;
+        --accent-strong: #1f6b1f;
+        --shadow: 0 18px 34px rgba(0, 0, 0, 0.1);
+        --card-solid-1: #ffffff;
+        --card-solid-2: #edf1ed;
+        --card-border: #2f8f2f;
+        --card-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
       }
 
       *,
@@ -51,38 +50,16 @@
         min-height: 100vh;
         color: var(--text);
         font-family: "Manrope", "Segoe UI", sans-serif;
-        background:
-          radial-gradient(58rem 34rem at 12% -8%, rgba(168, 208, 188, 0.22), transparent),
-          radial-gradient(54rem 32rem at 86% 2%, var(--white-ambient), transparent),
-          radial-gradient(42rem 24rem at 52% 22%, rgba(255, 255, 255, 0.11), transparent),
-          radial-gradient(55rem 30rem at 50% 110%, rgba(54, 147, 95, 0.24), transparent),
-          linear-gradient(180deg, #030706, #07110d 35%, #040807);
+        background: var(--bg);
         line-height: 1.5;
       }
 
       body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        opacity: 0.085;
-        background-image:
-          linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-        background-size: 26px 26px;
-        mask-image: radial-gradient(circle at center, black 22%, transparent 80%);
+        content: none;
       }
 
       body::after {
-        content: "";
-        position: fixed;
-        inset: 0;
-        pointer-events: none;
-        background:
-          radial-gradient(34rem 20rem at 26% 34%, rgba(255, 255, 255, 0.11), transparent),
-          radial-gradient(28rem 18rem at 76% 66%, rgba(255, 255, 255, 0.09), transparent);
-        mix-blend-mode: screen;
-        opacity: 0.45;
+        content: none;
       }
 
       a {
@@ -104,9 +81,8 @@
         margin-top: 0.7rem;
         border-radius: 999px;
         border: 1px solid var(--surface-border);
-        background: color-mix(in oklab, var(--surface-strong) 82%, rgba(255, 255, 255, 0.18));
-        backdrop-filter: blur(18px);
-        box-shadow: var(--shadow), 0 0 26px rgba(255, 255, 255, 0.08);
+        background: var(--surface-strong);
+        box-shadow: var(--shadow);
       }
 
       .site-header__inner {
@@ -125,8 +101,8 @@
         gap: 0.35rem;
         padding: 0.2rem;
         border-radius: 999px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        background: #edf1ed;
+        border: 1px solid #d4dbd4;
       }
 
       .site-nav a {
@@ -140,7 +116,7 @@
 
       .site-nav a:hover {
         color: var(--text);
-        background: rgba(255, 255, 255, 0.06);
+        background: #dce4dc;
       }
 
       .site-nav a:focus-visible,
@@ -188,16 +164,16 @@
         white-space: nowrap;
         transform-origin: center center;
         will-change: transform;
-        text-shadow: 0 0 30px rgba(166, 210, 188, 0.34), 0 0 14px rgba(255, 255, 255, 0.24);
+        text-shadow: 0 1px 0 #ffffff, 0 0 10px rgba(47, 143, 47, 0.22);
         transition: letter-spacing 120ms linear, text-shadow 120ms linear, opacity 120ms linear;
       }
 
       .hero__name.is-glitching {
         letter-spacing: 0.08em;
         text-shadow:
-          0 0 36px rgba(166, 210, 188, 0.46),
-          -2px 0 rgba(255, 255, 255, 0.48),
-          2px 0 rgba(146, 206, 178, 0.45);
+          0 0 16px rgba(47, 143, 47, 0.32),
+          -2px 0 rgba(255, 255, 255, 0.6),
+          2px 0 rgba(31, 107, 31, 0.36);
       }
 
       .hero__subtitle {
@@ -257,37 +233,25 @@
           border-color 180ms ease,
           background-color 180ms ease,
           box-shadow 220ms ease;
-        box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.08),
-          inset 0 -1px 0 rgba(0, 0, 0, 0.18),
-          var(--card-shadow);
+        box-shadow: var(--card-shadow);
       }
 
       .social-link::before {
-        content: "";
-        position: absolute;
-        inset: 1px 1px auto;
-        height: 1px;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.34);
-        opacity: 0.6;
+        content: none;
       }
 
       .social-link:hover {
         transform: translateY(-3px);
-        border-color: rgba(228, 233, 235, 0.7);
+        border-color: var(--accent-strong);
         background: var(--card-solid-2);
-        box-shadow:
-          inset 0 1px 0 rgba(255, 255, 255, 0.11),
-          inset 0 -1px 0 rgba(0, 0, 0, 0.2),
-          0 18px 36px rgba(0, 0, 0, 0.32);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
       }
 
       .social-link__icon {
         flex: 0 0 auto;
         width: 1.72rem;
         height: 1.72rem;
-        color: #f3fbf7;
+        color: var(--accent-strong);
       }
 
       @media (max-width: 760px) {
