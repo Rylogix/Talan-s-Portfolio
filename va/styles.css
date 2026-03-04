@@ -949,6 +949,69 @@ svg {
   font-weight: 600;
 }
 
+.contact-methods {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.contact-methods__label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.contact-methods__buttons {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.contact-method {
+  border: 1px solid var(--surface-border);
+  border-radius: 0.7rem;
+  padding: 0.6rem 0.5rem;
+  background: #ffffff;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease,
+    color 180ms ease,
+    box-shadow 220ms ease;
+}
+
+.contact-method:hover,
+.contact-method:focus-visible {
+  transform: translateY(-1px);
+  border-color: rgba(178, 58, 58, 0.42);
+}
+
+.contact-method.is-active {
+  background: #b23a3a;
+  border-color: rgba(178, 58, 58, 0.56);
+  color: #ffffff;
+  box-shadow:
+    0 0 0 1px rgba(178, 58, 58, 0.2),
+    0 10px 20px rgba(178, 58, 58, 0.16);
+}
+
+.contact-follow-cta {
+  justify-content: center;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--accent-strong);
+  background: #ffffff;
+}
+
+.contact-follow-cta[hidden] {
+  display: none !important;
+}
+
 .contact-form input,
 .contact-form select,
 .contact-form textarea {
@@ -1011,13 +1074,6 @@ svg {
 
 .form-status[data-state="error"] {
   color: var(--danger);
-}
-
-.form-warning {
-  margin: -0.2rem 0 0;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--accent-strong);
 }
 
 .site-footer {
@@ -1166,6 +1222,11 @@ svg {
 
   .hero-card__wave {
     height: 5.5rem;
+  }
+
+  .contact-method {
+    font-size: 0.68rem;
+    padding: 0.55rem 0.35rem;
   }
 
   .demo-player {

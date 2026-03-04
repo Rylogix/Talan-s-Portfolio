@@ -394,118 +394,39 @@
               script length, style references, and target delivery date.
             </p>
             <p class="contact-warning" role="note">
-              Communication is mainly by email. If you'd like to contact me any other way use one
-              of the following apps below.
+              Communication is mainly through the contact method you provide in the booking form.
             </p>
-
-            <div class="contact-list contact-list--icons" aria-label="Contact links">
-              <a
-                class="icon-link icon-link--instagram"
-                href="https://instagram.com/talangrayvoice"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Instagram"
-                title="Instagram"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect
-                    x="3.25"
-                    y="3.25"
-                    width="17.5"
-                    height="17.5"
-                    rx="5"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                  />
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="4.1"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                  />
-                  <circle cx="17.25" cy="6.75" r="1.15" fill="currentColor" />
-                </svg>
-                <span class="sr-only">Instagram</span>
-              </a>
-
-              <a
-                class="icon-link icon-link--x"
-                href="https://x.com/talangrayvoice"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="X"
-                title="X"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <path
-                    d="M5 4.5h3.4l4 5.65L17.3 4.5H19l-5.75 6.75L19.5 20h-3.4l-4.25-6-5.1 6H5l6.1-7.15L5 4.5Zm3.1 1.8 8.15 11.9h1.2L9.3 6.3H8.1Z"
-                    fill="currentColor"
-                  />
-                </svg>
-                <span class="sr-only">X</span>
-              </a>
-
-              <a
-                class="icon-link icon-link--discord"
-                href="https://discord.com/users/your-id"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="Discord"
-                title="Discord"
-              >
-                <img
-                  src="/va/icons/discord-streamline.png"
-                  alt=""
-                  class="icon-link__img icon-link__img--discord"
-                  aria-hidden="true"
-                />
-                <span class="sr-only">Discord</span>
-              </a>
-
-              <a
-                class="icon-link icon-link--email"
-                href="mailto:Talangrayva@gmail.com"
-                aria-label="Email"
-                title="Talangrayva@gmail.com"
-              >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                  <rect
-                    x="3"
-                    y="6"
-                    width="18"
-                    height="12"
-                    rx="2"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                  />
-                  <path
-                    d="M4 7.5 12 13.2 20 7.5"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <span class="sr-only">Email</span>
-              </a>
-            </div>
           </div>
 
           <div class="contact-card" data-reveal>
             <form class="contact-form" data-contact-form novalidate>
-              <label>
-                Contact Platform
-                <select name="contactMethod" data-contact-method required>
-                  <option value="email">Email</option>
-                  <option value="phone">Phone</option>
-                  <option value="instagram">Instagram</option>
-                </select>
-              </label>
+              <div class="contact-methods">
+                <span class="contact-methods__label">Contact Platform</span>
+                <div class="contact-methods__buttons" role="group" aria-label="Contact Platform">
+                  <button type="button" class="contact-method is-active" data-contact-choice="email" aria-pressed="true">
+                    Email
+                  </button>
+                  <button type="button" class="contact-method" data-contact-choice="phone" aria-pressed="false">
+                    Phone
+                  </button>
+                  <button type="button" class="contact-method" data-contact-choice="instagram" aria-pressed="false">
+                    Instagram
+                  </button>
+                  <button type="button" class="contact-method" data-contact-choice="discord" aria-pressed="false">
+                    Discord
+                  </button>
+                </div>
+                <input type="hidden" name="contactMethod" data-contact-method value="email" />
+              </div>
+
+              <a
+                class="btn btn--ghost btn--full contact-follow-cta"
+                data-contact-follow-cta
+                href="#"
+                target="_blank"
+                rel="noreferrer noopener"
+                hidden
+              ></a>
 
               <label>
                 <span data-contact-input-label>Email</span>
@@ -553,7 +474,6 @@
                 Send
               </button>
               <p class="form-status" data-form-status role="status" aria-live="polite"></p>
-              <p class="form-warning" data-instagram-warning hidden></p>
             </form>
           </div>
         </div>

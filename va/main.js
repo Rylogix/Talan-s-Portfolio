@@ -2,6 +2,16 @@ import "./styles.css";
 
 const FORM_ENDPOINT = "https://formspree.io/f/mqedozga";
 const DEMO_PREVIEW_COUNT = 1;
+const CONTACT_FOLLOW_CTA = {
+  instagram: {
+    label: "Make sure to follow to recieve messages",
+    href: "https://www.instagram.com/talangrayva"
+  },
+  discord: {
+    label: "Make sure to add me to recieve messages",
+    href: "https://discord.com/users/880863432247771167"
+  }
+};
 const CONTACT_FIELD_CONFIG = {
   email: {
     label: "Email",
@@ -22,6 +32,13 @@ const CONTACT_FIELD_CONFIG = {
     type: "text",
     autocomplete: "off",
     placeholder: "@yourusername",
+    inputmode: "text"
+  },
+  discord: {
+    label: "Discord Username",
+    type: "text",
+    autocomplete: "off",
+    placeholder: "username",
     inputmode: "text"
   }
 };
@@ -224,7 +241,6 @@ async function handleContactSubmit(event) {
   const form = event.currentTarget;
   const submitButton = form.querySelector("[data-submit-button]");
   const status = form.querySelector("[data-form-status]");
-  const instagramWarning = form.querySelector("[data-instagram-warning]");
 
   if (!(form instanceof HTMLFormElement) || !(submitButton instanceof HTMLButtonElement)) return;
 
@@ -240,6 +256,7 @@ async function handleContactSubmit(event) {
     email: contactMethod === "email" ? contactValue : "",
     phone: contactMethod === "phone" ? contactValue : "",
     instagram: contactMethod === "instagram" ? contactValue : "",
+    discord: contactMethod === "discord" ? contactValue : "",
     projectType: String(formData.get("projectType") || ""),
     estimatedBudget: String(formData.get("estimatedBudget") || ""),
     message: String(formData.get("message") || ""),
@@ -252,14 +269,6 @@ async function handleContactSubmit(event) {
   if (status) {
     status.textContent = "";
     status.dataset.state = "";
-  }
-  if (instagramWarning instanceof HTMLElement) {
-    instagramWarning.hidden = true;
-    instagramWarning.textContent = "";
-  }
-  if (contactMethod === "instagram" && instagramWarning instanceof HTMLElement) {
-    instagramWarning.textContent = "Make sure you are following @TalanGrayVA to recieve messages.";
-    instagramWarning.hidden = false;
   }
 
   try {
@@ -306,19 +315,40 @@ function initContactForm() {
   if (!(form instanceof HTMLFormElement)) return;
 
   const contactMethod = form.querySelector("[data-contact-method]");
-  if (contactMethod instanceof HTMLSelectElement) {
-    contactMethod.addEventListener("change", () => {
+  const contactButtons = form.querySelectorAll("[data-contact-choice]");
+  contactButtons.forEach((button) => {
+    if (!(button instanceof HTMLButtonElement)) return;
+    button.addEventListener("click", () => {
+      const selectedMethod = button.dataset.contactChoice || "email";
+      setContactMethod(form, selectedMethod);
       syncContactField(form);
-      const instagramWarning = form.querySelector("[data-instagram-warning]");
-      if (instagramWarning instanceof HTMLElement) {
-        instagramWarning.hidden = true;
-        instagramWarning.textContent = "";
-      }
     });
+  });
+
+  if (contactMethod instanceof HTMLInputElement) {
+    setContactMethod(form, contactMethod.value || "email");
+  } else {
+    setContactMethod(form, "email");
   }
 
   syncContactField(form);
   form.addEventListener("submit", handleContactSubmit);
+}
+
+function setContactMethod(form, method) {
+  const contactMethod = form.querySelector("[data-contact-method]");
+  if (!(contactMethod instanceof HTMLInputElement)) return;
+
+  const selectedMethod = CONTACT_FIELD_CONFIG[method] ? method : "email";
+  contactMethod.value = selectedMethod;
+
+  const contactButtons = form.querySelectorAll("[data-contact-choice]");
+  contactButtons.forEach((button) => {
+    if (!(button instanceof HTMLButtonElement)) return;
+    const isActive = button.dataset.contactChoice === selectedMethod;
+    button.classList.toggle("is-active", isActive);
+    button.setAttribute("aria-pressed", String(isActive));
+  });
 }
 
 function syncContactField(form) {
@@ -326,7 +356,7 @@ function syncContactField(form) {
   const contactInput = form.querySelector("[data-contact-input]");
   const contactLabel = form.querySelector("[data-contact-input-label]");
   if (
-    !(contactMethod instanceof HTMLSelectElement) ||
+    !(contactMethod instanceof HTMLInputElement) ||
     !(contactInput instanceof HTMLInputElement) ||
     !(contactLabel instanceof HTMLElement)
   ) {
@@ -335,12 +365,31 @@ function syncContactField(form) {
 
   const selectedMethod = CONTACT_FIELD_CONFIG[contactMethod.value] ? contactMethod.value : "email";
   const config = CONTACT_FIELD_CONFIG[selectedMethod];
+  setContactMethod(form, selectedMethod);
 
   contactLabel.textContent = config.label;
   contactInput.type = config.type;
   contactInput.autocomplete = config.autocomplete;
   contactInput.placeholder = config.placeholder;
   contactInput.setAttribute("inputmode", config.inputmode);
+  syncContactFollowCta(form, selectedMethod);
+}
+
+function syncContactFollowCta(form, method) {
+  const followCta = form.querySelector("[data-contact-follow-cta]");
+  if (!(followCta instanceof HTMLAnchorElement)) return;
+
+  const ctaConfig = CONTACT_FOLLOW_CTA[method];
+  if (!ctaConfig) {
+    followCta.hidden = true;
+    followCta.textContent = "";
+    followCta.removeAttribute("href");
+    return;
+  }
+
+  followCta.textContent = ctaConfig.label;
+  followCta.href = ctaConfig.href;
+  followCta.hidden = false;
 }
 
 function initFooterYear() {
