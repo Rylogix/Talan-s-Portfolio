@@ -499,8 +499,24 @@
           <div class="contact-card" data-reveal>
             <form class="contact-form" data-contact-form novalidate>
               <label>
-                Your Email / Or other platforms
-                <input type="email" name="email" autocomplete="email" required />
+                Contact Platform
+                <select name="contactMethod" data-contact-method required>
+                  <option value="email">Email</option>
+                  <option value="phone">Phone</option>
+                  <option value="instagram">Instagram</option>
+                </select>
+              </label>
+
+              <label>
+                <span data-contact-input-label>Email</span>
+                <input
+                  type="email"
+                  name="contactValue"
+                  data-contact-input
+                  autocomplete="email"
+                  required
+                  placeholder="you@example.com"
+                />
               </label>
 
               <label>
@@ -537,6 +553,7 @@
                 Send
               </button>
               <p class="form-status" data-form-status role="status" aria-live="polite"></p>
+              <p class="form-warning" data-instagram-warning hidden></p>
             </form>
           </div>
         </div>

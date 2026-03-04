@@ -950,6 +950,7 @@ svg {
 }
 
 .contact-form input,
+.contact-form select,
 .contact-form textarea {
   width: 100%;
   border-radius: 0.8rem;
@@ -969,6 +970,7 @@ svg {
 }
 
 .contact-form input:focus-visible,
+.contact-form select:focus-visible,
 .contact-form textarea:focus-visible {
   outline: none;
   border-color: rgba(178, 58, 58, 0.46);
@@ -1009,6 +1011,13 @@ svg {
 
 .form-status[data-state="error"] {
   color: var(--danger);
+}
+
+.form-warning {
+  margin: -0.2rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-strong);
 }
 
 .site-footer {

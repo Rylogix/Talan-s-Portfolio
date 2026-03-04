@@ -2,6 +2,29 @@ import "./styles.css";
 
 const FORM_ENDPOINT = "https://formspree.io/f/mqedozga";
 const DEMO_PREVIEW_COUNT = 1;
+const CONTACT_FIELD_CONFIG = {
+  email: {
+    label: "Email",
+    type: "email",
+    autocomplete: "email",
+    placeholder: "you@example.com",
+    inputmode: "email"
+  },
+  phone: {
+    label: "Phone Number",
+    type: "tel",
+    autocomplete: "tel",
+    placeholder: "(555) 123-4567",
+    inputmode: "tel"
+  },
+  instagram: {
+    label: "Instagram Username",
+    type: "text",
+    autocomplete: "off",
+    placeholder: "@yourusername",
+    inputmode: "text"
+  }
+};
 const allPlayers = new Set();
 const playersByRoot = new Map();
 
@@ -201,14 +224,22 @@ async function handleContactSubmit(event) {
   const form = event.currentTarget;
   const submitButton = form.querySelector("[data-submit-button]");
   const status = form.querySelector("[data-form-status]");
+  const instagramWarning = form.querySelector("[data-instagram-warning]");
 
   if (!(form instanceof HTMLFormElement) || !(submitButton instanceof HTMLButtonElement)) return;
 
   if (!form.reportValidity()) return;
 
   const formData = new FormData(form);
+  const contactMethodRaw = String(formData.get("contactMethod") || "email").toLowerCase();
+  const contactMethod = CONTACT_FIELD_CONFIG[contactMethodRaw] ? contactMethodRaw : "email";
+  const contactValue = String(formData.get("contactValue") || "").trim();
   const payload = {
-    email: String(formData.get("email") || ""),
+    contactMethod,
+    contactValue,
+    email: contactMethod === "email" ? contactValue : "",
+    phone: contactMethod === "phone" ? contactValue : "",
+    instagram: contactMethod === "instagram" ? contactValue : "",
     projectType: String(formData.get("projectType") || ""),
     estimatedBudget: String(formData.get("estimatedBudget") || ""),
     message: String(formData.get("message") || ""),
@@ -221,6 +252,14 @@ async function handleContactSubmit(event) {
   if (status) {
     status.textContent = "";
     status.dataset.state = "";
+  }
+  if (instagramWarning instanceof HTMLElement) {
+    instagramWarning.hidden = true;
+    instagramWarning.textContent = "";
+  }
+  if (contactMethod === "instagram" && instagramWarning instanceof HTMLElement) {
+    instagramWarning.textContent = "Make sure you are following @TalanGrayVA to recieve messages.";
+    instagramWarning.hidden = false;
   }
 
   try {
@@ -247,9 +286,10 @@ async function handleContactSubmit(event) {
 
     form.reset();
     if (status) {
-      status.textContent = "Sent. I\u2019ll get back to you by email.";
+      status.textContent = "Sent. I\u2019ll get back to you by the platform you provided.";
       status.dataset.state = "success";
     }
+    syncContactField(form);
   } catch (error) {
     if (status) {
       status.textContent = error instanceof Error ? error.message : "Something went wrong. Try again.";
@@ -264,7 +304,43 @@ async function handleContactSubmit(event) {
 function initContactForm() {
   const form = document.querySelector("[data-contact-form]");
   if (!(form instanceof HTMLFormElement)) return;
+
+  const contactMethod = form.querySelector("[data-contact-method]");
+  if (contactMethod instanceof HTMLSelectElement) {
+    contactMethod.addEventListener("change", () => {
+      syncContactField(form);
+      const instagramWarning = form.querySelector("[data-instagram-warning]");
+      if (instagramWarning instanceof HTMLElement) {
+        instagramWarning.hidden = true;
+        instagramWarning.textContent = "";
+      }
+    });
+  }
+
+  syncContactField(form);
   form.addEventListener("submit", handleContactSubmit);
+}
+
+function syncContactField(form) {
+  const contactMethod = form.querySelector("[data-contact-method]");
+  const contactInput = form.querySelector("[data-contact-input]");
+  const contactLabel = form.querySelector("[data-contact-input-label]");
+  if (
+    !(contactMethod instanceof HTMLSelectElement) ||
+    !(contactInput instanceof HTMLInputElement) ||
+    !(contactLabel instanceof HTMLElement)
+  ) {
+    return;
+  }
+
+  const selectedMethod = CONTACT_FIELD_CONFIG[contactMethod.value] ? contactMethod.value : "email";
+  const config = CONTACT_FIELD_CONFIG[selectedMethod];
+
+  contactLabel.textContent = config.label;
+  contactInput.type = config.type;
+  contactInput.autocomplete = config.autocomplete;
+  contactInput.placeholder = config.placeholder;
+  contactInput.setAttribute("inputmode", config.inputmode);
 }
 
 function initFooterYear() {
