@@ -4,11 +4,11 @@ const FORM_ENDPOINT = "https://formspree.io/f/mqedozga";
 const DEMO_PREVIEW_COUNT = 1;
 const CONTACT_FOLLOW_CTA = {
   instagram: {
-    label: "Make sure to follow to recieve messages",
+    label: "Click here to follow me",
     href: "https://www.instagram.com/talangrayva"
   },
   discord: {
-    label: "Make sure to add me to recieve messages",
+    label: "Click here to add me",
     href: "https://discord.com/users/880863432247771167"
   }
 };
@@ -397,8 +397,61 @@ function initFooterYear() {
   if (yearNode) yearNode.textContent = String(new Date().getFullYear());
 }
 
+function initMobileBookNowVisibility() {
+  const bookNow = document.querySelector(".book-now");
+  const bookingSection = document.querySelector("#contact");
+  if (!(bookNow instanceof HTMLElement) || !(bookingSection instanceof HTMLElement)) return;
+
+  const mobileQuery = window.matchMedia("(max-width: 760px)");
+  let observer = null;
+
+  const setHidden = (hidden) => {
+    bookNow.classList.toggle("is-hidden-mobile", hidden);
+  };
+
+  const stopObserving = () => {
+    if (observer) {
+      observer.disconnect();
+      observer = null;
+    }
+    setHidden(false);
+  };
+
+  const startObserving = () => {
+    if (observer || !mobileQuery.matches) return;
+
+    observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setHidden(Boolean(entry?.isIntersecting));
+      },
+      {
+        threshold: 0.08
+      }
+    );
+
+    observer.observe(bookingSection);
+  };
+
+  const syncObserverState = () => {
+    if (mobileQuery.matches) {
+      startObserving();
+      return;
+    }
+    stopObserving();
+  };
+
+  syncObserverState();
+  if (typeof mobileQuery.addEventListener === "function") {
+    mobileQuery.addEventListener("change", syncObserverState);
+  } else {
+    mobileQuery.addListener(syncObserverState);
+  }
+}
+
 initRevealAnimations();
 initAudioPlayers();
 initDemoGroupToggles();
 initContactForm();
 initFooterYear();
+initMobileBookNowVisibility();

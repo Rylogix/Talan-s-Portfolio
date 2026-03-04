@@ -1107,7 +1107,8 @@ svg {
   text-transform: uppercase;
   transition:
     transform 180ms ease,
-    box-shadow 220ms ease;
+    box-shadow 220ms ease,
+    opacity 180ms ease;
 }
 
 .book-now:hover,
@@ -1178,8 +1179,7 @@ svg {
   }
 
   .site-header {
-    margin-top: 0.4rem;
-    border-radius: 1rem;
+    display: none;
   }
 
   .site-header__inner {
@@ -1246,6 +1246,12 @@ svg {
     text-align: center;
     justify-content: center;
     display: inline-flex;
+  }
+
+  .book-now.is-hidden-mobile {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(0.75rem);
   }
 }
 
